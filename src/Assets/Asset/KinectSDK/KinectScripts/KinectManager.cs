@@ -83,7 +83,10 @@ public class KinectManager : MonoBehaviour
 	
 	// GUI Text to show messages.
 	public GameObject CalibrationText;
-	
+
+	//CTH
+	public Vector3 v3CursorScreenPosition;
+
 	// GUI Texture to display the hand cursor for Player1
 	public GameObject HandCursor1;
 	
@@ -1167,8 +1170,10 @@ public class KinectManager : MonoBehaviour
 							{
 								MouseControl.MouseMove(gestureData.screenPos);
 							}
+
+							v3CursorScreenPosition = gestureData.screenPos; // CTH
 						}
-			
+
 						foreach(KinectGestures.GestureListenerInterface listener in gestureListeners)
 						{
 							listener.GestureInProgress(Player1ID, 0, gestureData.gesture, gestureData.progress, 

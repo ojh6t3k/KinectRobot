@@ -4,6 +4,12 @@ using System;
 
 public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListenerInterface
 {
+	// CTH
+	public bool _bIsUserDetected = false;
+	public float _fProgress = 0f;
+	public bool _bIsClick = false;
+
+
 	// GUI Text to display the gesture messages.
 	public GUIText GestureInfo;
 	
@@ -13,6 +19,8 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 	
 	public void UserDetected(uint userId, int userIndex)
 	{
+		_bIsUserDetected = true; // CTH
+
 		// as an example - detect these user specific gestures
 		KinectManager manager = KinectManager.Instance;
 		manager.DetectGesture(userId, KinectGestures.Gestures.Jump);
@@ -31,6 +39,8 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 	
 	public void UserLost(uint userId, int userIndex)
 	{
+		_bIsUserDetected = false; // CTH
+
 		if(GestureInfo != null)
 		{
 			GestureInfo.guiText.text = string.Empty;
@@ -43,6 +53,8 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 		//GestureInfo.guiText.text = string.Format("{0} Progress: {1:F1}%", gesture, (progress * 100));
 		if(gesture == KinectGestures.Gestures.Click && progress > 0.3f)
 		{
+			_fProgress = progress; // CTH
+
 			string sGestureText = string.Format ("{0} {1:F1}% complete", gesture, progress * 100);
 			if(GestureInfo != null)
 				GestureInfo.guiText.text = sGestureText;
@@ -51,6 +63,8 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 		}		
 		else if((gesture == KinectGestures.Gestures.ZoomOut || gesture == KinectGestures.Gestures.ZoomIn) && progress > 0.5f)
 		{
+			_fProgress = 0f; // CTH
+
 			string sGestureText = string.Format ("{0} detected, zoom={1:F1}%", gesture, screenPos.z * 100);
 			if(GestureInfo != null)
 				GestureInfo.guiText.text = sGestureText;
@@ -59,21 +73,29 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 		}
 		else if(gesture == KinectGestures.Gestures.Wheel && progress > 0.5f)
 		{
+			_fProgress = 0f; // CTH
+
 			string sGestureText = string.Format ("{0} detected, angle={1:F1} deg", gesture, screenPos.z);
 			if(GestureInfo != null)
 				GestureInfo.guiText.text = sGestureText;
 			
 			progressDisplayed = true;
 		}
+
+		_bIsClick = false; // CTH
 	}
 
 	public bool GestureCompleted (uint userId, int userIndex, KinectGestures.Gestures gesture, 
 		KinectWrapper.SkeletonJoint joint, Vector3 screenPos)
 	{
 		string sGestureText = gesture + " detected";
-		if(gesture == KinectGestures.Gestures.Click)
+		if (gesture == KinectGestures.Gestures.Click)
+		{
 			sGestureText += string.Format(" at ({0:F1}, {1:F1})", screenPos.x, screenPos.y);
-		
+			_bIsClick = true; // CTH
+		}
+
+
 		if(GestureInfo != null)
 			GestureInfo.guiText.text = sGestureText;
 		
@@ -85,6 +107,8 @@ public class SimpleGestureListener : MonoBehaviour, KinectGestures.GestureListen
 	public bool GestureCancelled (uint userId, int userIndex, KinectGestures.Gestures gesture, 
 		KinectWrapper.SkeletonJoint joint)
 	{
+		_fProgress = 0f; // CTH
+
 		if(progressDisplayed)
 		{
 			// clear the progress info
