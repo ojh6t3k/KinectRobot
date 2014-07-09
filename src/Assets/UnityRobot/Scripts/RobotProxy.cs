@@ -10,6 +10,7 @@ namespace UnityRobot
 {
 	public class RobotProxy : MonoBehaviour
 	{
+		[HideInInspector]
 		public List<string> portNames = new List<string>();
 		public string portName;
 

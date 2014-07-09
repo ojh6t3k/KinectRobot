@@ -7,7 +7,6 @@ using UnityRobot;
 
 
 
-
 public enum EMode
 {
 	TITLE,
@@ -54,8 +53,20 @@ public class MainControl : MonoBehaviour
 	public GameObject		_goLinePerson;
 	public GameObject		_goRobot;
 	public UILabel			_UILblMessage;
+	public UILabel			_UILblTimer;
 	String					_strMode = "";
 	// NGUI ========================
+
+	int _nAvatarTimer = 0;
+
+
+	public CMDModule		_CMDModule;
+
+
+	public AvatarJoint[] _AvatarJoints;
+
+
+
 
 
 
@@ -80,6 +91,8 @@ public class MainControl : MonoBehaviour
 		CheckKinect();
 
 		GoTitle();
+
+		_AvatarJoints = FindObjectsOfType(typeof(AvatarJoint)) as AvatarJoint[];
 	}
 
 
@@ -168,7 +181,10 @@ public class MainControl : MonoBehaviour
 		_goGestureBtnSet.SetActive(false);
 		_goObj_Robot.SetActive(true);
 		CancelInvoke("CheckPlayer");
+		_UILblTimer.enabled = false;
 		CheckPlayer();
+
+		FollowOnOff(false);
 	}
 
 
@@ -207,7 +223,19 @@ public class MainControl : MonoBehaviour
 
 		_goGestureBtn[p_Num].SetActive(true);
 
-		Invoke("ResetGestureBtn", 10f);
+		_CMDModule.Value = (Byte)(p_Num + 1);
+
+
+		CheckGestureEnd();
+	}
+
+
+	void CheckGestureEnd()
+	{
+		if (_CMDModule.Value == 0)
+			ResetGestureBtn();
+		else
+			Invoke("CheckGestureEnd", 0.1f);
 	}
 
 
@@ -232,7 +260,49 @@ public class MainControl : MonoBehaviour
 		_goObj_Robot.SetActive(true);
 		_strMode = "Avatar Mode";
 		_UILblMessage.text = _strMode;
+		_UILblTimer.enabled = true;
+		_nAvatarTimer = 10;
+		AvatarCountDown();
+
+		//FollowOnOff(true);
 	}
+
+
+
+	void AvatarCountDown()
+	{
+		if (_nAvatarTimer <= -1)
+		{
+			GoWaiting();
+			return;
+		}
+
+		_UILblTimer.text = _nAvatarTimer.ToString();
+
+//		if (_KinectManager.IsPlayerCalibrated(_KinectManager.GetPlayer1ID()))
+//			_nAvatarTimer --;
+
+		CancelInvoke("AvatarCountDown");
+		Invoke("AvatarCountDown", 1f);
+	}
+
+
+
+
+	void FollowOnOff(bool p_OnOff)
+	{
+		if (_AvatarJoints.Length == 0)
+			return;
+
+		foreach(AvatarJoint joint in _AvatarJoints)
+		{
+			joint.follow = p_OnOff;
+		}
+	}
+
+
+
+
 
 
 

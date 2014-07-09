@@ -44,7 +44,7 @@ public class MyModule : ModuleProxy
 		Pop(ref output_byte);
 		Pop(ref output_ushort);
 		Pop(ref output_short);
-		
+
 		canUpdate = true;
 	}
 	
