@@ -571,7 +571,11 @@ public class AvatarController : MonoBehaviour
 			offsetNode.transform.rotation = originalRotation;
 		}
     }
-	
+
+
+
+
+
 	// Converts kinect joint rotation to avatar joint rotation, depending on joint initial rotation and offset rotation
 	Quaternion Kinect2AvatarRot(Quaternion jointRotation, int boneIndex)
 	{
