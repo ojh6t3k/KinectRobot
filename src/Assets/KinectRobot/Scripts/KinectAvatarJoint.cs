@@ -1,10 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 using UnityRobot;
 
 
-public class AvatarJoint : MonoBehaviour
+public class KinectAvatarJoint : MonoBehaviour
 {
 	public enum Axis
 	{
@@ -15,23 +15,23 @@ public class AvatarJoint : MonoBehaviour
 		pZ,
 		mZ
 	}
-
+	
 	public Axis linkDirection;
 	public Axis panUp;
 	public Axis panForward;
 	public Axis tiltUp;
 	public Axis tiltForward;
-
+	
 	public ServoModule panServo;
 	public ServoModule tiltServo;
 	public bool panFollow = false;
 	public bool tiltFollow = false;
 	public bool panCCW = false;
 	public bool tiltCCW = false;
-
+	
 	public bool debug = false;
 	public float drawLineLength = 1f;
-
+	
 	private Quaternion _sRotation;
 	private Quaternion _qParent;
 	private Vector3 _panUp;
@@ -43,11 +43,11 @@ public class AvatarJoint : MonoBehaviour
 	private Vector3 _tiltProjection;
 	private float _panAngle;
 	private float _tiltAngle;
-
+	
 	void Awake()
 	{
 	}
-
+	
 	// Use this for initialization
 	void Start ()
 	{
@@ -63,16 +63,16 @@ public class AvatarJoint : MonoBehaviour
 		Quaternion qParent = _sRotation;
 		Quaternion qEnd = transform.localRotation;
 		Vector3 right = Vector3.zero;
-
+		
 		_linkDirection = qEnd * AxisToVector(linkDirection);
-
+		
 		// compute pan angle
 		_panUp = qParent * AxisToVector(panUp);
 		_panForward = qParent * AxisToVector(panForward);
 		right = qParent * Vector3.Cross(AxisToVector(panUp), AxisToVector(panForward));
 		_panProjection = Vector3.Project(_linkDirection, right) + Vector3.Project(_linkDirection, _panForward);
 		_panProjection.Normalize();
-
+		
 		_panAngle = 0f;
 		if(_panProjection != Vector3.zero)
 		{
@@ -82,7 +82,7 @@ public class AvatarJoint : MonoBehaviour
 				_panAngle *= -1f;
 		}
 		qParent *= Quaternion.AngleAxis(_panAngle, AxisToVector(panUp));
-
+		
 		// compute tilt angle
 		_tiltUp = qParent * AxisToVector(tiltUp);
 		_tiltForward = qParent * AxisToVector(tiltForward);
@@ -98,7 +98,7 @@ public class AvatarJoint : MonoBehaviour
 			if(sign < 0f)
 				_tiltAngle *= -1f;
 		}
-
+		
 		if(panFollow == true && panServo != null)
 		{
 			if(panCCW == false)
@@ -106,7 +106,7 @@ public class AvatarJoint : MonoBehaviour
 			else
 				panServo.Angle = -_panAngle;
 		}
-
+		
 		if(tiltFollow == true && tiltServo != null)
 		{
 			if(tiltCCW == false)
@@ -115,28 +115,28 @@ public class AvatarJoint : MonoBehaviour
 				tiltServo.Angle = -_tiltAngle;
 		}
 	}
-
-#if UNITY_EDITOR
+	
+	#if UNITY_EDITOR
 	void OnDrawGizmos()
 	{
 		if(debug == false || Application.isPlaying == false)
 			return;
-
+		
 		Vector3 pos = transform.position;
 		Quaternion rot = transform.parent.rotation;
-
+		
 		Gizmos.color = Color.magenta;
 		Gizmos.DrawRay(pos, rot * (_linkDirection * drawLineLength));
-
+		
 		Gizmos.color = Color.green;
 		Gizmos.DrawRay(pos, rot * (_panUp * drawLineLength));
-
+		
 		Gizmos.color = Color.blue;
 		Gizmos.DrawRay(pos, rot * (_panForward * drawLineLength));
-
+		
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawRay(pos, rot * (_panProjection * drawLineLength));
-
+		
 		Gizmos.color = Color.green;
 		Gizmos.DrawRay(pos, rot * (_tiltUp * drawLineLength));
 		
@@ -145,11 +145,11 @@ public class AvatarJoint : MonoBehaviour
 		
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawRay(pos, rot * (_tiltProjection * drawLineLength));
-
+		
 		Debug.Log(string.Format("Pan:{0:f2}, Tilt:{1:f2}", _panAngle, _tiltAngle));
 	}
-#endif
-
+	#endif
+	
 	public bool follow
 	{
 		set
@@ -158,7 +158,7 @@ public class AvatarJoint : MonoBehaviour
 			tiltFollow = value;
 		}
 	}
-
+	
 	Vector3 AxisToVector(Axis axis)
 	{
 		Vector3 vec = Vector3.zero;
