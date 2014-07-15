@@ -28,7 +28,7 @@ ServoModule L_Shoulder_Roll(5, 5, -160, 160);
 ServoModule L_Shoulder_Yaw(6, 6, -160, 160);
 ServoModule L_Elbow(7, 7, -160, 160);
 
-int cmdModule_id = 30;
+int cmdModule_id = 10;
 byte cmdModule_value = 0;
 boolean cmdModule_updated = false;
 boolean cmdModule_start = false;
