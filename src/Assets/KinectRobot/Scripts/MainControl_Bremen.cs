@@ -201,7 +201,7 @@ public class MainControl_Bremen : MonoBehaviour
 		CancelInvoke("CheckPlayer");
 		CheckPlayer();
 
-		_nGameTimer = 30;
+		_nGameTimer = 300;
 		GameCountDown();
 	}
 

@@ -1027,7 +1027,7 @@ GameObject:
   - 135: {fileID: 157194457}
   m_Layer: 0
   m_Name: Gem7
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1039,7 +1039,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 157194454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 322.260559, y: 267.775208, z: 2000}
+  m_LocalPosition: {x: 0, y: -300, z: 2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 243130959}
@@ -3043,7 +3043,7 @@ GameObject:
   - 135: {fileID: 440257573}
   m_Layer: 0
   m_Name: Gem2
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3055,7 +3055,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 440257570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 612.637146, y: 143.528854, z: 2000}
+  m_LocalPosition: {x: 0, y: 200, z: 2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 241781443}
@@ -3375,6 +3375,7 @@ GameObject:
   - 4: {fileID: 561994059}
   - 54: {fileID: 561994060}
   - 135: {fileID: 561994061}
+  - 114: {fileID: 561994062}
   m_Layer: 5
   m_Name: HandCollider_R
   m_TagString: Untagged
@@ -3422,6 +3423,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &561994062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561994058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f15da65c1870364996fdb663fe5695d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &572537336
 GameObject:
   m_ObjectHideFlags: 0
@@ -5295,6 +5307,7 @@ GameObject:
   - 4: {fileID: 782795401}
   - 54: {fileID: 782795402}
   - 135: {fileID: 782795403}
+  - 114: {fileID: 782795404}
   m_Layer: 5
   m_Name: HandCollider_L
   m_TagString: Untagged
@@ -5342,6 +5355,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 50
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &782795404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 782795400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f15da65c1870364996fdb663fe5695d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &786042083
 GameObject:
   m_ObjectHideFlags: 0
@@ -6051,7 +6075,7 @@ GameObject:
   - 135: {fileID: 918709413}
   m_Layer: 0
   m_Name: Gem5
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6063,7 +6087,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 918709410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 612.637146, y: -249.286041, z: 2000}
+  m_LocalPosition: {x: 0, y: -100, z: 2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 509916729}
@@ -7740,7 +7764,7 @@ GameObject:
   - 135: {fileID: 1113073020}
   m_Layer: 0
   m_Name: Gem4
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7752,7 +7776,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1113073017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 612.637146, y: -109.53434, z: 2000}
+  m_LocalPosition: {x: 0, y: 0, z: 2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 25580203}
@@ -7966,7 +7990,7 @@ Transform:
   m_GameObject: {fileID: 1133353803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00248138956, y: .00248138956, z: .00248138956}
+  m_LocalScale: {x: .00260416674, y: .00260416674, z: .00260416674}
   m_Children:
   - {fileID: 53101851}
   - {fileID: 1840403735}
@@ -10375,8 +10399,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 400, y: 1340.5, z: 100}
-  m_Center: {x: 200, y: 406.399994, z: 0}
+  m_Size: {x: 800, y: 1340.5, z: 100}
+  m_Center: {x: 400, y: 406.399994, z: 0}
 --- !u!65 &1532368006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10387,8 +10411,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2000, y: 400, z: 100}
-  m_Center: {x: -813.400024, y: -200, z: 0}
+  m_Size: {x: 2000, y: 800, z: 100}
+  m_Center: {x: -813.400024, y: -400, z: 0}
 --- !u!4 &1532368007
 Transform:
   m_ObjectHideFlags: 0
@@ -11131,7 +11155,7 @@ GameObject:
   - 135: {fileID: 1599006007}
   m_Layer: 0
   m_Name: Gem6
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11143,7 +11167,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1599006004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 612.637146, y: -367.697235, z: 2000}
+  m_LocalPosition: {x: 0, y: -200, z: 2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2052409841}
@@ -11380,7 +11404,7 @@ GameObject:
   - 135: {fileID: 1622683914}
   m_Layer: 0
   m_Name: Gem3
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11392,7 +11416,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1622683911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 612.637146, y: 15.108716, z: 2000}
+  m_LocalPosition: {x: 0, y: 100, z: 2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1674097643}
@@ -12362,8 +12386,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 400, y: 1340.5, z: 100}
-  m_Center: {x: -200, y: -456.399994, z: 0}
+  m_Size: {x: 800, y: 1340.5, z: 100}
+  m_Center: {x: -400, y: -456.399994, z: 0}
 --- !u!65 &1777150750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12374,8 +12398,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2000, y: 400, z: 100}
-  m_Center: {x: 762.599976, y: 200, z: 0}
+  m_Size: {x: 2000, y: 800, z: 100}
+  m_Center: {x: 762.599976, y: 400, z: 0}
 --- !u!1 &1777292653
 GameObject:
   m_ObjectHideFlags: 0
@@ -12804,7 +12828,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1840403734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 708, y: 403, z: 0}
+  m_LocalPosition: {x: 512, y: 384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1023208752}
@@ -12863,7 +12887,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1840531058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 708, y: -403, z: 0}
+  m_LocalPosition: {x: 512, y: -384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1532368007}
@@ -13257,7 +13281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1886167915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -708, y: 403, z: 0}
+  m_LocalPosition: {x: -512, y: 384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1804133736}
@@ -14943,7 +14967,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2111854589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -403, z: 0}
+  m_LocalPosition: {x: 0, y: -384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1691962968}
@@ -15182,7 +15206,7 @@ GameObject:
   - 135: {fileID: 2131825110}
   m_Layer: 0
   m_Name: Gem1
-  m_TagString: Untagged
+  m_TagString: Gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15194,7 +15218,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2131825107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 612.637085, y: 277.08667, z: 2000}
+  m_LocalPosition: {x: 0, y: 300, z: 2000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1935848276}
