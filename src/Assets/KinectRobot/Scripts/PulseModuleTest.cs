@@ -4,15 +4,13 @@ using System;
 using UnityRobot;
 
 
-public class AvatarTest : MonoBehaviour
+public class PulseModuleTest : MonoBehaviour
 {
 	public RobotProxy robot;
-	public Animation animation;
-	public AvatarJoint[] joints;
+	public PulseModule pulse;
 
 	private string _statusMessage = "Ready";
 	private bool _connecting = false;
-	private Vector2 _scrollPos;
 
 	// Use this for initialization
 	void Start ()
@@ -21,6 +19,7 @@ public class AvatarTest : MonoBehaviour
 		robot.OnConnectionFailed += OnConnectionFailed;
 		robot.OnDisconnected += OnDisconnected;
 		robot.OnSearchCompleted += OnSearchCompleted;
+		
 	}
 	
 	// Update is called once per frame
@@ -39,31 +38,13 @@ public class AvatarTest : MonoBehaviour
 			{
 				_statusMessage = "Disconnected";
 				robot.Disconnect();
-				foreach(AvatarJoint joint in joints)
-				{
-					if(joint != null)
-						joint.follow = false;
-				}
 			}
 			guiRect.y += (guiRect.height + 5);
 			
-			guiRect.width = 100;
-			guiRect.height = 250;
-			GUILayout.BeginArea(guiRect);
-			GUILayout.BeginScrollView(_scrollPos);
-
-			GUI.enabled = !animation.isPlaying;
-			foreach(AnimationState clip in animation)
+			if(GUI.Button(guiRect, "Pulse") == true)
 			{
-				if(GUILayout.Button(clip.name) == true)
-				{
-					animation.Play(clip.name);				
-				}
+				pulse.DurationTime = 100;
 			}
-			GUI.enabled = true;
-
-			GUILayout.EndScrollView();			
-			GUILayout.EndArea();
 			guiRect.y += (guiRect.height + 5);
 		}
 		else
@@ -106,12 +87,6 @@ public class AvatarTest : MonoBehaviour
 	{
 		_statusMessage = "Success to conncet";
 		_connecting = false;
-
-		foreach(AvatarJoint joint in joints)
-		{
-			if(joint != null)
-				joint.follow = true;
-		}
 	}
 	
 	void OnConnectionFailed(object sender, EventArgs e)
@@ -124,12 +99,6 @@ public class AvatarTest : MonoBehaviour
 	{
 		_statusMessage = "Disconnected";
 		_connecting = false;
-
-		foreach(AvatarJoint joint in joints)
-		{
-			if(joint != null)
-				joint.follow = false;
-		}
 	}
 	
 	void OnSearchCompleted(object sender, EventArgs e)

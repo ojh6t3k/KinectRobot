@@ -62,7 +62,7 @@ public class MainControl : MonoBehaviour
 
 	public CMDModule		_CMDModule;
 
-	KinectAvatarJoint[] _AvatarJoints;
+	AvatarJoint[] _AvatarJoints;
 
 
 
@@ -92,7 +92,7 @@ public class MainControl : MonoBehaviour
 
 		GoTitle();
 
-		_AvatarJoints = FindObjectsOfType(typeof(KinectAvatarJoint)) as KinectAvatarJoint[];
+		_AvatarJoints = FindObjectsOfType(typeof(AvatarJoint)) as AvatarJoint[];
 	}
 
 
@@ -294,7 +294,7 @@ public class MainControl : MonoBehaviour
 		if (_AvatarJoints.Length == 0)
 			return;
 
-		foreach(KinectAvatarJoint joint in _AvatarJoints)
+		foreach(AvatarJoint joint in _AvatarJoints)
 		{
 			joint.follow = p_OnOff;
 		}
