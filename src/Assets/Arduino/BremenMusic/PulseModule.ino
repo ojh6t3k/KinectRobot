@@ -41,7 +41,7 @@ int PulseModule::process()
   if(_do == true)
   {
     unsigned long delta = millis() - _time;
-    if(_duration < (word)delta)
+    if(_duration > (word)delta)
     {
       return _on;
     }

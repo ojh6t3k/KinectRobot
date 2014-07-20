@@ -43,7 +43,7 @@ public class PulseModuleTest : MonoBehaviour
 			
 			if(GUI.Button(guiRect, "Pulse") == true)
 			{
-				pulse.DurationTime = 100;
+				pulse.DurationTime = 200;
 			}
 			guiRect.y += (guiRect.height + 5);
 		}
