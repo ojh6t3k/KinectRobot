@@ -8,7 +8,7 @@ public class HandCollider : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Gem")
 		{
-			Debug.Log(collision.gameObject.name);
+			//Debug.Log(collision.gameObject.name);
 		}
 	}
 }
