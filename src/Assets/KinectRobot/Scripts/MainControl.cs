@@ -66,10 +66,16 @@ public class MainControl : MonoBehaviour
 
 
 
+	// Gesture ====================
+	public Transform	_trGuide_Arm_L;
+	public Transform	_trGuide_Hand_L;
+	public Transform	_trGuide_Arm_R;
+	public Transform	_trGuide_Hand_R;
 
-
-
-
+	public Transform	_trCheck_Arm_L;
+	public Transform	_trCheck_Hand_L;
+	public Transform	_trCheck_Arm_R;
+	public Transform	_trCheck_Hand_R;
 
 
 

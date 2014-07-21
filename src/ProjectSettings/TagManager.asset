@@ -4,6 +4,10 @@
 TagManager:
   tags:
   - Gem
+  - Arm_L
+  - Arm_R
+  - Hand_L
+  - Hand_R
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
