@@ -41,9 +41,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: f894b7768accdb14e911ef4c458983ce, type: 2}
   mSprites:
-  - name: Img_Cursor
+  - name: Img_Check
     x: 0
-    y: 117
+    y: 512
+    width: 512
+    height: 512
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Img_Cursor
+    x: 380
+    y: 311
     width: 122
     height: 200
     borderLeft: 0
@@ -55,8 +68,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Img_CursorProgress
-    x: 0
-    y: 318
+    x: 1391
+    y: 830
     width: 194
     height: 194
     borderLeft: 0
@@ -67,6 +80,136 @@ MonoBehaviour:
     paddingRight: 3
     paddingTop: 3
     paddingBottom: 3
+  - name: Img_Gesture1
+    x: 890
+    y: 794
+    width: 500
+    height: 230
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 24
+    paddingRight: 26
+    paddingTop: 79
+    paddingBottom: 91
+  - name: Img_Gesture10
+    x: 513
+    y: 403
+    width: 359
+    height: 305
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 101
+    paddingRight: 90
+    paddingTop: 79
+    paddingBottom: 16
+  - name: Img_Gesture2
+    x: 0
+    y: 190
+    width: 379
+    height: 321
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 77
+    paddingRight: 94
+    paddingTop: 42
+    paddingBottom: 37
+  - name: Img_Gesture3
+    x: 1144
+    y: 271
+    width: 256
+    height: 241
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 148
+    paddingRight: 146
+    paddingTop: 68
+    paddingBottom: 91
+  - name: Img_Gesture4
+    x: 890
+    y: 212
+    width: 252
+    height: 289
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 148
+    paddingRight: 150
+    paddingTop: 69
+    paddingBottom: 42
+  - name: Img_Gesture5
+    x: 513
+    y: 134
+    width: 368
+    height: 268
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 96
+    paddingRight: 86
+    paddingTop: 41
+    paddingBottom: 91
+  - name: Img_Gesture6
+    x: 1403
+    y: 500
+    width: 169
+    height: 293
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 189
+    paddingRight: 192
+    paddingTop: 16
+    paddingBottom: 91
+  - name: Img_Gesture7
+    x: 513
+    y: 709
+    width: 376
+    height: 315
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 98
+    paddingRight: 76
+    paddingTop: 42
+    paddingBottom: 43
+  - name: Img_Gesture8
+    x: 1144
+    y: 513
+    width: 258
+    height: 280
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 144
+    paddingRight: 148
+    paddingTop: 79
+    paddingBottom: 41
+  - name: Img_Gesture9
+    x: 890
+    y: 502
+    width: 253
+    height: 291
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 147
+    paddingRight: 150
+    paddingTop: 67
+    paddingBottom: 42
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0
