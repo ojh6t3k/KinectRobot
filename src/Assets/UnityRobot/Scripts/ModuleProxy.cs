@@ -20,16 +20,14 @@ namespace UnityRobot
 				if(canUpdate == false)
 					return null;
 
+				canUpdate = false;
 				_dataBytes.Clear();
 				OnPush();
 
 				if(_dataBytes.Count == 0)
 					return null;
 				else
-				{
-					canUpdate = false;
 					return _dataBytes.ToArray();
-				}
 			}
 			set
 			{

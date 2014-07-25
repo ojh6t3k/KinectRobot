@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 using UnityRobot;
 
 
-public class AvatarTest : MonoBehaviour
+public class MusicPlayerTest : MonoBehaviour
 {
 	public RobotProxy robot;
-	public Animation animation;
-	public AvatarJoint[] joints;
+	public MidiPlayer midi;
 
 	private string _statusMessage = "Ready";
 	private bool _connecting = false;
-	private Vector2 _scrollPos;
 
+	
 	// Use this for initialization
 	void Start ()
 	{
@@ -39,32 +39,30 @@ public class AvatarTest : MonoBehaviour
 			{
 				_statusMessage = "Disconnected";
 				robot.Disconnect();
-				foreach(AvatarJoint joint in joints)
-				{
-					if(joint != null)
-						joint.follow = false;
-				}
 			}
 			guiRect.y += (guiRect.height + 5);
-			
-			guiRect.width = 100;
-			guiRect.height = 250;
-			GUILayout.BeginArea(guiRect);
-			GUILayout.BeginScrollView(_scrollPos);
 
-			GUI.enabled = !animation.isPlaying;
-			foreach(AnimationState clip in animation)
+			GUI.enabled = !midi.isPlaying;
+			if(GUI.Button(guiRect, "Play") == true)
 			{
-				if(GUILayout.Button(clip.name) == true)
-				{
-					animation.Play(clip.name);				
-				}
+				midi.Play();
 			}
-			GUI.enabled = true;
+			guiRect.x += (guiRect.width + 5);
 
-			GUILayout.EndScrollView();			
-			GUILayout.EndArea();
+			GUI.enabled = midi.isPlaying;
+			if(GUI.Button(guiRect, "Stop") == true)
+			{
+				midi.Stop();
+			}
+			guiRect.x = 10;
 			guiRect.y += (guiRect.height + 5);
+
+			if(midi.isPlaying == true)
+			{
+				guiRect.width = 300;
+				GUI.Label(guiRect, string.Format("Time: {0:f2} / {1:f2}sec", midi.currentTime, midi.totalTime));
+				guiRect.y += (guiRect.height + 5);
+			}
 		}
 		else
 		{
@@ -106,12 +104,6 @@ public class AvatarTest : MonoBehaviour
 	{
 		_statusMessage = "Success to conncet";
 		_connecting = false;
-
-		foreach(AvatarJoint joint in joints)
-		{
-			if(joint != null)
-				joint.follow = true;
-		}
 	}
 	
 	void OnConnectionFailed(object sender, EventArgs e)
@@ -124,12 +116,6 @@ public class AvatarTest : MonoBehaviour
 	{
 		_statusMessage = "Disconnected";
 		_connecting = false;
-
-		foreach(AvatarJoint joint in joints)
-		{
-			if(joint != null)
-				joint.follow = false;
-		}
 	}
 	
 	void OnSearchCompleted(object sender, EventArgs e)

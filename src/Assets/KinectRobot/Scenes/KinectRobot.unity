@@ -7911,22 +7911,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 420161068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2f11b96f9ed374794dcf954c5bd019, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e895085d1c197845b69d89df8d60656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkDirection: 0
-  panUp: 0
-  panForward: 4
-  tiltUp: 2
-  tiltForward: 0
+  linkForward: 0
+  linkRight: 4
+  follow: 0
   panServo: {fileID: 389368137}
   tiltServo: {fileID: 1958691873}
-  panFollow: 0
-  tiltFollow: 0
   panCCW: 1
-  tiltCCW: 0
-  debug: 0
-  drawLineLength: 1
+  tiltCCW: 1
+  debugLink: 0
+  debugPan: 0
+  debugTilt: 0
 --- !u!1 &434033493
 GameObject:
   m_ObjectHideFlags: 0
@@ -11594,22 +11591,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 641908141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2f11b96f9ed374794dcf954c5bd019, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e895085d1c197845b69d89df8d60656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkDirection: 1
-  panUp: 1
-  panForward: 3
-  tiltUp: 4
-  tiltForward: 1
+  linkForward: 1
+  linkRight: 3
+  follow: 0
   panServo: {fileID: 1317587615}
   tiltServo: {fileID: 1111812760}
-  panFollow: 1
-  tiltFollow: 1
   panCCW: 1
   tiltCCW: 0
-  debug: 0
-  drawLineLength: 1
+  debugLink: 0
+  debugPan: 0
+  debugTilt: 0
 --- !u!1 &646181337
 GameObject:
   m_ObjectHideFlags: 0
@@ -28146,22 +28140,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1589082094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2f11b96f9ed374794dcf954c5bd019, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e895085d1c197845b69d89df8d60656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkDirection: 1
-  panUp: 1
-  panForward: 4
-  tiltUp: 2
-  tiltForward: 1
+  linkForward: 1
+  linkRight: 4
+  follow: 0
   panServo: {fileID: 1543150281}
   tiltServo: {fileID: 1888326528}
-  panFollow: 0
-  tiltFollow: 0
   panCCW: 1
   tiltCCW: 0
-  debug: 0
-  drawLineLength: 1
+  debugLink: 0
+  debugPan: 0
+  debugTilt: 0
 --- !u!1 &1590089046
 GameObject:
   m_ObjectHideFlags: 0
@@ -31966,22 +31957,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798724728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2f11b96f9ed374794dcf954c5bd019, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e895085d1c197845b69d89df8d60656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkDirection: 0
-  panUp: 0
-  panForward: 3
-  tiltUp: 4
-  tiltForward: 0
+  linkForward: 0
+  linkRight: 3
+  follow: 0
   panServo: {fileID: 87649472}
   tiltServo: {fileID: 1504174560}
-  panFollow: 1
-  tiltFollow: 1
   panCCW: 1
-  tiltCCW: 0
-  debug: 0
-  drawLineLength: 1
+  tiltCCW: 1
+  debugLink: 0
+  debugPan: 0
+  debugTilt: 0
 --- !u!1 &1804133735
 GameObject:
   m_ObjectHideFlags: 0

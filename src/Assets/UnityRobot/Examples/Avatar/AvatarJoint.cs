@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 using UnityRobot;
@@ -16,33 +16,39 @@ public class AvatarJoint : MonoBehaviour
 		mZ
 	}
 
-	public Axis linkDirection;
-	public Axis panUp;
-	public Axis panForward;
-	public Axis tiltUp;
-	public Axis tiltForward;
+	public Axis linkForward;
+	public Axis linkRight;
 
+	public bool follow = false;
 	public ServoModule panServo;
 	public ServoModule tiltServo;
-	public bool panFollow = false;
-	public bool tiltFollow = false;
 	public bool panCCW = false;
 	public bool tiltCCW = false;
 
-	public bool debug = false;
-	public float drawLineLength = 1f;
-
-	private Quaternion _sRotation;
-	private Quaternion _qParent;
+	private Quaternion _baseRotation;
+	private Vector3 _linkUp;
+	private Vector3 _linkForward;
+	private Vector3 _linkRight;
+	private Vector3 _linkUp2;
+	private Vector3 _linkForward2;
+	private Vector3 _linkRight2;
 	private Vector3 _panUp;
-	private Vector3 _tiltUp;
 	private Vector3 _panForward;
+	private Vector3 _panRight;
+	private Vector3 _panForward2;
+	private Vector3 _tiltUp;
 	private Vector3 _tiltForward;
-	private Vector3 _linkDirection;
-	private Vector3 _panProjection;
-	private Vector3 _tiltProjection;
-	private float _panAngle;
-	private float _tiltAngle;
+	private Vector3 _tiltRight;
+	private Vector3 _tiltForward2;
+	private Vector3 _yawUp;
+	private Vector3 _yawForward;
+	private Vector3 _yawRight;
+	private Vector3 _yawForward2;
+
+	private float _panAngle = 0f;
+	private float _tiltAngle = 0f;
+	private float _yawAngle = 0f;
+
 
 	void Awake()
 	{
@@ -51,117 +57,166 @@ public class AvatarJoint : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		_sRotation = transform.localRotation;
-		_qParent = Quaternion.identity;
-		_panAngle = 0f;
-		_tiltAngle = 0f;
+		_baseRotation = transform.localRotation;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		Quaternion qParent = _sRotation;
-		Quaternion qEnd = transform.localRotation;
-		Vector3 right = Vector3.zero;
-
-		_linkDirection = qEnd * AxisToVector(linkDirection);
-
-		// compute pan angle
-		_panUp = qParent * AxisToVector(panUp);
-		_panForward = qParent * AxisToVector(panForward);
-		right = qParent * Vector3.Cross(AxisToVector(panUp), AxisToVector(panForward));
-		_panProjection = Vector3.Project(_linkDirection, right) + Vector3.Project(_linkDirection, _panForward);
-		_panProjection.Normalize();
-
-		_panAngle = 0f;
-		if(_panProjection != Vector3.zero)
+		if(follow == true)
 		{
-			_panAngle = Vector3.Angle(_panForward, _panProjection);
-			float sign = Vector3.Dot(Vector3.Cross(_panForward, _panProjection), _panUp);
-			if(sign < 0f)
-				_panAngle *= -1f;
-		}
-		qParent *= Quaternion.AngleAxis(_panAngle, AxisToVector(panUp));
+			// compute link transform
+			_linkForward = AxisToVector(linkForward);
+			_linkRight = AxisToVector(linkRight);
+			_linkUp = Vector3.Cross(_linkForward, _linkRight);
+			Quaternion diffRotation = Quaternion.Inverse(_baseRotation) * transform.localRotation;
+			_linkForward2 = diffRotation * _linkForward;
+			_linkRight2 = diffRotation * _linkRight;
+			_linkUp2 = diffRotation * _linkUp;
 
-		// compute tilt angle
-		_tiltUp = qParent * AxisToVector(tiltUp);
-		_tiltForward = qParent * AxisToVector(tiltForward);
-		right = qParent * Vector3.Cross(AxisToVector(tiltUp), AxisToVector(tiltForward));
-		_tiltProjection = Vector3.Project(_linkDirection, right) + Vector3.Project(_linkDirection, _tiltForward);
-		_tiltProjection.Normalize();
-		
-		_tiltAngle = 0f;
-		if(_tiltProjection != Vector3.zero)
-		{
-			_tiltAngle = Vector3.Angle(_tiltForward, _tiltProjection);
-			float sign = Vector3.Dot(Vector3.Cross(_tiltForward, _tiltProjection), _tiltUp);
+			// compute tilt transform
+			_tiltForward = _linkForward;
+			_tiltRight = Vector3.Project(_linkForward2, _linkRight) + Vector3.Project(_linkForward2, _linkUp);
+			_tiltUp = Vector3.Cross(_tiltForward, _tiltRight);
+			_tiltForward2 = _linkForward2;
+			_tiltAngle = AngleBetween(_tiltForward, _tiltForward2, _tiltUp);
+
+			// compute yaw transform
+			Quaternion yawTransform = Quaternion.FromToRotation(_linkForward, _linkForward2);
+			_yawUp = _linkForward2;
+			_yawForward = yawTransform * _linkRight;
+			_yawRight = Vector3.Cross(_yawUp, _yawForward);
+			_yawForward2 = _linkRight2;
+			_yawAngle = AngleBetween(_yawForward, _yawForward2, _yawUp);
+
+			// compute pan transform
+			_panUp = _linkForward;
+			_panForward = _linkRight;
+			_panRight = Vector3.Cross(_panUp, _panForward);
+			if(_tiltAngle == 0f)
+			{
+				_panForward2 = _yawForward2;
+				_panAngle = _yawAngle;
+			}
+			else
+			{
+				_panForward2 = Vector3.Project(_linkForward2, _panForward) + Vector3.Project(_linkForward2, _panRight);
+				float angle = AngleBetween(_panForward, _panForward2, _panUp);
+				if(Mathf.Abs(_panAngle - angle) > 150f)
+					_panAngle = AngleBetween(_panForward, -_panForward2, _panUp);
+				else
+					_panAngle = angle;
+
+				_yawAngle -= _panAngle;
+				yawTransform = Quaternion.AngleAxis(-_yawAngle, _linkForward2);
+				_linkRight2 = yawTransform * _linkRight2;
+				_linkUp2 = yawTransform * _linkUp2;
+
+				_panForward2 = Quaternion.AngleAxis(-90f, _panUp) * _linkUp2;
+				_panAngle = AngleBetween(_panForward, _panForward2, _panUp);
+			}
+
+			float sign = Vector3.Dot(_linkUp2, _tiltUp);
 			if(sign < 0f)
+			{
+				_tiltUp *= -1f;
+				_tiltRight *= -1f;
 				_tiltAngle *= -1f;
-		}
+			}
 
-		if(panFollow == true && panServo != null)
-		{
-			if(panCCW == false)
-				panServo.Angle = _panAngle;
-			else
-				panServo.Angle = -_panAngle;
-		}
+			// apply servo angle
+			if(follow == true)
+			{
+				if(panServo != null)
+				{
+					if(panCCW == true)
+						panServo.Angle = -_panAngle;
+					else
+						panServo.Angle = _panAngle;
+				}
 
-		if(tiltFollow == true && tiltServo != null)
-		{
-			if(tiltCCW == false)
-				tiltServo.Angle = _tiltAngle;
-			else
-				tiltServo.Angle = -_tiltAngle;
+				if(tiltServo != null)
+				{
+					if(tiltCCW == true)
+						tiltServo.Angle = -_tiltAngle;
+					else
+						tiltServo.Angle = _tiltAngle;
+				}
+			}
 		}
 	}
 
 #if UNITY_EDITOR
+	public bool debugLink = false;
+	public bool debugPan = false;
+	public bool debugTilt = false;
+
 	void OnDrawGizmos()
 	{
-		if(debug == false || Application.isPlaying == false)
+		if(Application.isPlaying == false)
 			return;
 
-		Vector3 pos = transform.position;
-		Quaternion rot = transform.parent.rotation;
+		if(follow == true)
+		{
+			Vector3 pos = transform.position;
+			Quaternion rot = transform.parent.rotation * _baseRotation;
 
-		Gizmos.color = Color.magenta;
-		Gizmos.DrawRay(pos, rot * (_linkDirection * drawLineLength));
+			if(debugLink == true)
+			{
+				Gizmos.color = Color.magenta;
+				Gizmos.DrawRay(pos, rot * (_linkForward2 * 100f));
+				
+				Gizmos.color = Color.cyan;
+				Gizmos.DrawRay(pos, rot * (_linkUp2 * 100f));
+			}
 
-		Gizmos.color = Color.green;
-		Gizmos.DrawRay(pos, rot * (_panUp * drawLineLength));
+			if(debugPan == true)
+			{
+				Gizmos.color = Color.green;
+				Gizmos.DrawRay(pos, rot * (_panUp * 100f));
+				
+				Gizmos.color = Color.blue;
+				Gizmos.DrawRay(pos, rot * (_panForward * 100f));
 
-		Gizmos.color = Color.blue;
-		Gizmos.DrawRay(pos, rot * (_panForward * drawLineLength));
+				Gizmos.color = Color.red;
+				Gizmos.DrawRay(pos, rot * (_panRight * 100f));
 
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawRay(pos, rot * (_panProjection * drawLineLength));
+				Gizmos.color = Color.yellow;
+				Gizmos.DrawRay(pos, rot * (_panForward2 * 100f));
+			}
 
-		Gizmos.color = Color.green;
-		Gizmos.DrawRay(pos, rot * (_tiltUp * drawLineLength));
-		
-		Gizmos.color = Color.blue;
-		Gizmos.DrawRay(pos, rot * (_tiltForward * drawLineLength));
-		
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawRay(pos, rot * (_tiltProjection * drawLineLength));
+			if(debugTilt == true)
+			{
+				Gizmos.color = Color.green;
+				Gizmos.DrawRay(pos, rot * (_tiltUp * 100f));
+				
+				Gizmos.color = Color.blue;
+				Gizmos.DrawRay(pos, rot * (_tiltForward * 100f));
 
-		Debug.Log(string.Format("Pan:{0:f2}, Tilt:{1:f2}", _panAngle, _tiltAngle));
+				Gizmos.color = Color.red;
+				Gizmos.DrawRay(pos, rot * (_tiltRight * 100f));
+
+				Gizmos.color = Color.yellow;
+				Gizmos.DrawRay(pos, rot * (_tiltForward2 * 100f));
+			}
+
+			if(debugPan == true || debugTilt == true)
+			{
+				string message = "";
+				if(debugPan == true)
+					message += string.Format("Pan:{0:f2} ", _panAngle);
+				if(debugTilt == true)
+					message += string.Format("Tilt:{0:f2} ", _tiltAngle);
+				Debug.Log(message);
+			}
+		}
 	}
 #endif
 
-	public bool follow
-	{
-		set
-		{
-			panFollow = value;
-			tiltFollow = value;
-		}
-	}
-
-	Vector3 AxisToVector(Axis axis)
+	public Vector3 AxisToVector(Axis axis)
 	{
 		Vector3 vec = Vector3.zero;
+		
 		switch(axis)
 		{
 		case Axis.pX:
@@ -188,6 +243,17 @@ public class AvatarJoint : MonoBehaviour
 			vec = -Vector3.forward;
 			break;
 		}
+		
 		return vec;
+	}
+
+	public float AngleBetween(Vector3 from, Vector3 to, Vector3 up)
+	{
+		float angle = Vector3.Angle(from, to);
+		float sign = Vector3.Dot(Vector3.Cross(from, to), up);
+		if(sign < 0f)
+			angle *= -1f;
+
+		return angle;
 	}
 }
