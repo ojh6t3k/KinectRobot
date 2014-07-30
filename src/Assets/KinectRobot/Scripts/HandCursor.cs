@@ -54,8 +54,8 @@ public class HandCursor : MonoBehaviour
 				_MainControl.GoGesture();
 			else if (p_Hit.gameObject.name == "Btn_Avatar")
 				_MainControl.GoAvatar();
-			else if (p_Hit.gameObject.name == "Btn_Back")
-				_MainControl.GoWaiting();
+//			else if (p_Hit.gameObject.name == "Btn_Back")
+//				_MainControl.GoWaiting();
 
 
 			SelectGestureBtn(p_Hit.gameObject);

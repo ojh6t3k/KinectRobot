@@ -29,6 +29,8 @@ public class MainControl_Bremen : MonoBehaviour
 
 	// NGUI ========================
 	public GameObject		_goUI_Title;
+	public GameObject		_goPnl_Start;
+	public GameObject		_goPnl_Option;
 	public GameObject		_goUI_Waiting;
 	public GameObject		_goObj_Robot;
 
@@ -57,10 +59,13 @@ public class MainControl_Bremen : MonoBehaviour
 	Vector3 _v3ViewportR;
 
 	public GameObject[]		_goGem = new GameObject[6];
-
-
-
 	// NGUI ========================
+
+
+	// OPTION & NGUI ========================
+	public int		_nOption_PlayTime_Bremen = 10;
+	public UILabel	_Ulbl_PlayTime;
+	// OPTION & NGUI ========================
 
 
 
@@ -94,7 +99,58 @@ public class MainControl_Bremen : MonoBehaviour
 		CheckKinect();
 
 		GoTitle();
+
+		LoadOptions();
 	}
+
+
+
+
+	void LoadOptions()
+	{
+		if (PlayerPrefs.GetInt("PP_PlayTime_Bremen") != 0 )
+		{
+			_nOption_PlayTime_Bremen = PlayerPrefs.GetInt("PP_PlayTime_Bremen");
+			_Ulbl_PlayTime.text = _nOption_PlayTime_Bremen.ToString();
+		}
+	}
+	
+	
+	
+	public void SaveOptions()
+	{
+		PlayerPrefs.SetInt("PP_PlayTime_Bremen",_nOption_PlayTime_Bremen);
+	}
+
+
+
+
+
+	// Option PlayTime ====================================================
+	
+	public void Option_SetPlayTime_Plus()
+	{
+		_nOption_PlayTime_Bremen = _nOption_PlayTime_Bremen + 10;
+		
+		if (_nOption_PlayTime_Bremen > 300)
+			_nOption_PlayTime_Bremen = _nOption_PlayTime_Bremen - 300;
+		
+		_Ulbl_PlayTime.text = _nOption_PlayTime_Bremen.ToString();
+	}
+	
+	public void Option_SetPlayTime_Minus()
+	{
+		_nOption_PlayTime_Bremen = _nOption_PlayTime_Bremen - 10;
+		
+		if (_nOption_PlayTime_Bremen <= 0)
+			_nOption_PlayTime_Bremen = _nOption_PlayTime_Bremen + 300;
+		
+		_Ulbl_PlayTime.text = _nOption_PlayTime_Bremen.ToString();
+	}
+
+
+
+
 
 
 
@@ -186,10 +242,26 @@ public class MainControl_Bremen : MonoBehaviour
 	{
 		_eCurMode = EMode.TITLE;
 		_goUI_Title.SetActive(true);
+		_goPnl_Start.SetActive(true);
+		_goPnl_Option.SetActive(false);
 		_goUI_Waiting.SetActive(false);
 		_goObj_Robot.SetActive(false);
 		_goRobot.transform.position = new Vector3(0f, 200f, 0f);
 	}
+
+	public void GoOption()
+	{
+		_eCurMode = EMode.OPTION;
+		_goUI_Title.SetActive(true);
+		_goPnl_Start.SetActive(false);
+		_goPnl_Option.SetActive(true);
+		_goUI_Waiting.SetActive(false);
+		_goObj_Robot.SetActive(false);
+		_goRobot.transform.position = new Vector3(0f, 200f, 0f);
+	}
+
+
+
 
 
 	public void GoGame()
@@ -201,7 +273,7 @@ public class MainControl_Bremen : MonoBehaviour
 		CancelInvoke("CheckPlayer");
 		CheckPlayer();
 
-		_nGameTimer = 300;
+		_nGameTimer = _nOption_PlayTime_Bremen;
 		GameCountDown();
 	}
 
@@ -221,7 +293,7 @@ public class MainControl_Bremen : MonoBehaviour
 
 		_UILblTimer.text = _nGameTimer.ToString();
 
-		if (_KinectManager.IsPlayerCalibrated(_KinectManager.GetPlayer1ID()))
+		//if (_KinectManager.IsPlayerCalibrated(_KinectManager.GetPlayer1ID()))
 			_nGameTimer --;
 
 		CancelInvoke("GameCountDown");

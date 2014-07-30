@@ -53,6 +53,8 @@ public class MainControl : MonoBehaviour
 	public UILabel			_UILblRobotMessage;
 	public UILabel			_UILblKinectMessage;
 
+	public GameObject		_goGestureModeBtn;
+	public GameObject		_goAvatarModeBtn;
 
 	public GameObject		_goCursor;
 	public GameObject		_goWaitingSet;
@@ -77,6 +79,9 @@ public class MainControl : MonoBehaviour
 	public int		_nOption_Duration = 1;
 	public int		_nOption_PlayTime = 10;
 	public int		_nOption_Button = 10;
+	public int		_nOption_Gesture = 1;
+	public int		_nOption_Avatar = 1;
+
 
 	public UILabel	_Ulbl_StartTime;
 	public UILabel	_Ulbl_Repeat;
@@ -84,6 +89,10 @@ public class MainControl : MonoBehaviour
 	public UILabel	_Ulbl_Duration;
 	public UILabel	_Ulbl_PlayTime;
 	public UILabel	_Ulbl_Button;
+	public GameObject	_goGestureOn;
+	public GameObject	_goGestureOff;
+	public GameObject	_goAvatarOn;
+	public GameObject	_goAvatarOff;
 	// OPTION & NGUI ========================
 
 
@@ -182,6 +191,13 @@ public class MainControl : MonoBehaviour
 			_nOption_Button = PlayerPrefs.GetInt("PP_Button");
 			_Ulbl_Button.text = _nOption_Button.ToString();
 		}
+
+
+		_nOption_Gesture = PlayerPrefs.GetInt("PP_GestureMode");
+		Change_Tollge_Gesture(_nOption_Gesture);
+
+		_nOption_Avatar = PlayerPrefs.GetInt("PP_AvatarMode");
+		Change_Tollge_Avatar(_nOption_Avatar);
 	}
 
 
@@ -194,6 +210,8 @@ public class MainControl : MonoBehaviour
 		PlayerPrefs.SetInt("PP_Duration",_nOption_Duration);
 		PlayerPrefs.SetInt("PP_PlayTime",_nOption_PlayTime);
 		PlayerPrefs.SetInt("PP_Button",_nOption_Button);
+		PlayerPrefs.SetInt("PP_GestureMode",_nOption_Gesture);
+		PlayerPrefs.SetInt("PP_AvatarMode",_nOption_Avatar);
 	}
 
 
@@ -460,6 +478,16 @@ public class MainControl : MonoBehaviour
 		CancelInvoke("AvatarCountDown");
 		_UILblTimer.enabled = false;
 		CheckPlayer();
+
+		if (_nOption_Gesture == 1)
+			_goGestureModeBtn.SetActive(true);
+		else
+			_goGestureModeBtn.SetActive(false);
+
+		if (_nOption_Avatar == 1)
+			_goAvatarModeBtn.SetActive(true);
+		else
+			_goAvatarModeBtn.SetActive(false);
 
 		FollowOnOff(false);
 		Show_RepeatCounter();
@@ -854,6 +882,61 @@ public class MainControl : MonoBehaviour
 
 
 
+
+	// Option Gesture Mode ==============================================
+	
+	public void Option_SetGestureMode()
+	{
+		if (_nOption_Gesture == 0)
+			_nOption_Gesture = 1;
+		else
+			_nOption_Gesture = 0;
+		
+		Change_Tollge_Gesture(_nOption_Gesture);
+	}
+
+	void Change_Tollge_Gesture(int p_OnOff)
+	{
+		if (_nOption_Gesture == 1)
+		{
+			_goGestureOn.SetActive(true);
+			_goGestureOff.SetActive(false);
+		}
+		else
+		{
+			_goGestureOn.SetActive(false);
+			_goGestureOff.SetActive(true);
+		}
+	}
+
+
+
+
+	// Option Avatar Mode ==============================================
+	
+	public void Option_SetAvatarMode()
+	{
+		if (_nOption_Avatar == 0)
+			_nOption_Avatar = 1;
+		else
+			_nOption_Avatar = 0;
+		
+		Change_Tollge_Avatar(_nOption_Avatar);
+	}
+	
+	void Change_Tollge_Avatar(int p_OnOff)
+	{
+		if (_nOption_Avatar == 1)
+		{
+			_goAvatarOn.SetActive(true);
+			_goAvatarOff.SetActive(false);
+		}
+		else
+		{
+			_goAvatarOn.SetActive(false);
+			_goAvatarOff.SetActive(true);
+		}
+	}
 
 
 
