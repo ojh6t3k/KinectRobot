@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityRobot;
 
 public class GemControl : MonoBehaviour 
 {
@@ -7,6 +8,8 @@ public class GemControl : MonoBehaviour
 	public AutoRotate  _scrY;
 	public AutoRotate  _scrZ;
 
+	public PulseModule pulseModule;
+	public int durationTime; // msec
 
 	// Use this for initialization
 	void Start () 
@@ -20,5 +23,13 @@ public class GemControl : MonoBehaviour
 	void Update () 
 	{
 	
+	}
+
+	void OnCollisionEnter(Collision collision) 
+	{
+		if (collision.gameObject.tag == "Hand_L" || collision.gameObject.tag == "Hand_R")
+		{
+			pulseModule.DurationTime = durationTime;
+		}
 	}
 }
