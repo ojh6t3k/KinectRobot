@@ -52,9 +52,19 @@ public class HandCursor : MonoBehaviour
 			_bIsClick_BugFix = _SimpleGestureListener._bIsClick;
 
 			if (p_Hit.gameObject.name == "Btn_Gesture")
-				_MainControl.GoGesture();
+			{
+				if (_MainControl != null)
+					_MainControl.GoGesture();
+				if (_MainControl_Internal != null)
+					_MainControl_Internal.GoGesture();
+			}
 			else if (p_Hit.gameObject.name == "Btn_Avatar")
-				_MainControl.GoAvatar();
+			{
+				if (_MainControl != null)
+					_MainControl.GoAvatar();
+				if (_MainControl_Internal != null)
+					_MainControl_Internal.GoAvatar();
+			}
 //			else if (p_Hit.gameObject.name == "Btn_Back")
 //				_MainControl.GoWaiting();
 

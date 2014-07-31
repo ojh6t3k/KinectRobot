@@ -521,6 +521,8 @@ public class MainControl_Internal : MonoBehaviour
 		SelectGesture(-1);
 
 		_Animation.Play("Ready");
+
+		FollowOnOff(true);
 	}
 	
 	
