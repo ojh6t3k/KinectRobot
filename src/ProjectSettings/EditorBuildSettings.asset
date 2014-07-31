@@ -7,9 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/KinectRobot/Scenes/Luncher_Temp.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/KinectRobot/Scenes/KinectRobot.unity
   - enabled: 1
     path: Assets/KinectRobot/Scenes/Bremen.unity
-  - enabled: 0
-    path: Assets/KinectRobot/Scenes/Exhibition.unity
+  - enabled: 1
+    path: Assets/KinectRobot/Scenes/KinectRobot(Internal).unity

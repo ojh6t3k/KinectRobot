@@ -7,7 +7,7 @@ public class Luncher_Temp : MonoBehaviour
 
 	public void GoKinect()
 	{
-		Application.LoadLevel("KinectRobot");
+		Application.LoadLevel("KinectRobot(Internal)");
 	}
 
 
