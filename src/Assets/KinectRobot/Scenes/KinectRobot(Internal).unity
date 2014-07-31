@@ -1573,7 +1573,7 @@ MonoBehaviour:
   follow: 0
   servo: {fileID: 1504174560}
   CCW: 0
-  offset: 0
+  offset: 15
 --- !u!23 &102821982
 Renderer:
   m_ObjectHideFlags: 0
@@ -30235,7 +30235,7 @@ MonoBehaviour:
   follow: 0
   servo: {fileID: 1317587615}
   CCW: 1
-  offset: 15
+  offset: 0
 --- !u!23 &1692162926
 Renderer:
   m_ObjectHideFlags: 0
@@ -35748,7 +35748,7 @@ MonoBehaviour:
   follow: 0
   servo: {fileID: 1111812760}
   CCW: 0
-  offset: 0
+  offset: -15
 --- !u!23 &1974539143
 Renderer:
   m_ObjectHideFlags: 0
@@ -38720,7 +38720,7 @@ MonoBehaviour:
   follow: 0
   servo: {fileID: 87649472}
   CCW: 1
-  offset: -15
+  offset: 0
 --- !u!23 &2118305122
 Renderer:
   m_ObjectHideFlags: 0
