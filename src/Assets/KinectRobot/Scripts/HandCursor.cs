@@ -4,6 +4,7 @@ using System.Collections;
 public class HandCursor : MonoBehaviour 
 {
 	public MainControl _MainControl;
+	public MainControl_Internal _MainControl_Internal;
 	public Camera NGUI_Camera;
 	public KinectManager _KinectManager;
 	public SimpleGestureListener _SimpleGestureListener;
@@ -75,26 +76,53 @@ public class HandCursor : MonoBehaviour
 
 	public void SelectGestureBtn(GameObject p_Btn)
 	{
-		if (p_Btn.name == "Btn_Gesture1")
-			_MainControl.SelectGesture(0);
-		else if (p_Btn.name == "Btn_Gesture2")
-			_MainControl.SelectGesture(1);
-		else if (p_Btn.name == "Btn_Gesture3")
-			_MainControl.SelectGesture(2);
-		else if (p_Btn.name == "Btn_Gesture4")
-			_MainControl.SelectGesture(3);
-		else if (p_Btn.name == "Btn_Gesture5")
-			_MainControl.SelectGesture(4);
-		else if (p_Btn.name == "Btn_Gesture6")
-			_MainControl.SelectGesture(5);
-		else if (p_Btn.name == "Btn_Gesture7")
-			_MainControl.SelectGesture(6);
-		else if (p_Btn.name == "Btn_Gesture8")
-			_MainControl.SelectGesture(7);
-		else if (p_Btn.name == "Btn_Gesture9")
-			_MainControl.SelectGesture(8);
-		else if (p_Btn.name == "Btn_Gesture10")
-			_MainControl.SelectGesture(9);
+		if(_MainControl != null)
+		{
+			if (p_Btn.name == "Btn_Gesture1")
+				_MainControl.SelectGesture(0);
+			else if (p_Btn.name == "Btn_Gesture2")
+				_MainControl.SelectGesture(1);
+			else if (p_Btn.name == "Btn_Gesture3")
+				_MainControl.SelectGesture(2);
+			else if (p_Btn.name == "Btn_Gesture4")
+				_MainControl.SelectGesture(3);
+			else if (p_Btn.name == "Btn_Gesture5")
+				_MainControl.SelectGesture(4);
+			else if (p_Btn.name == "Btn_Gesture6")
+				_MainControl.SelectGesture(5);
+			else if (p_Btn.name == "Btn_Gesture7")
+				_MainControl.SelectGesture(6);
+			else if (p_Btn.name == "Btn_Gesture8")
+				_MainControl.SelectGesture(7);
+			else if (p_Btn.name == "Btn_Gesture9")
+				_MainControl.SelectGesture(8);
+			else if (p_Btn.name == "Btn_Gesture10")
+				_MainControl.SelectGesture(9);
+		}
+
+		if(_MainControl_Internal != null)
+		{
+			if (p_Btn.name == "Btn_Gesture1")
+				_MainControl_Internal.SelectGesture(0);
+			else if (p_Btn.name == "Btn_Gesture2")
+				_MainControl_Internal.SelectGesture(1);
+			else if (p_Btn.name == "Btn_Gesture3")
+				_MainControl_Internal.SelectGesture(2);
+			else if (p_Btn.name == "Btn_Gesture4")
+				_MainControl_Internal.SelectGesture(3);
+			else if (p_Btn.name == "Btn_Gesture5")
+				_MainControl_Internal.SelectGesture(4);
+			else if (p_Btn.name == "Btn_Gesture6")
+				_MainControl_Internal.SelectGesture(5);
+			else if (p_Btn.name == "Btn_Gesture7")
+				_MainControl_Internal.SelectGesture(6);
+			else if (p_Btn.name == "Btn_Gesture8")
+				_MainControl_Internal.SelectGesture(7);
+			else if (p_Btn.name == "Btn_Gesture9")
+				_MainControl_Internal.SelectGesture(8);
+			else if (p_Btn.name == "Btn_Gesture10")
+				_MainControl_Internal.SelectGesture(9);
+		}
 	}
 
 

@@ -1,0 +1,665 @@
+fileFormatVersion: 2
+guid: d984512dd1694a04497f2dff5598cefd
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Box01
+    100002: Box02
+    100004: Box04
+    100006: Box05
+    100008: Box06
+    100010: Box07
+    100012: Box08
+    100014: Box13
+    100016: ChamferBox01
+    100018: Cylinder01
+    100020: Cylinder02
+    100022: Cylinder03
+    100024: Cylinder04
+    100026: L_Elbow
+    100028: L_Hand
+    100030: L_Shoulder
+    100032: //RootNode
+    100034: Object01
+    100036: R_Elbow
+    100038: R_Hand
+    100040: R_Shoulder
+    100042: Sphere02
+    400000: Box01
+    400002: Box02
+    400004: Box04
+    400006: Box05
+    400008: Box06
+    400010: Box07
+    400012: Box08
+    400014: Box13
+    400016: ChamferBox01
+    400018: Cylinder01
+    400020: Cylinder02
+    400022: Cylinder03
+    400024: Cylinder04
+    400026: L_Elbow
+    400028: L_Hand
+    400030: L_Shoulder
+    400032: //RootNode
+    400034: Object01
+    400036: R_Elbow
+    400038: R_Hand
+    400040: R_Shoulder
+    400042: Sphere02
+    2300000: Box01
+    2300002: Box02
+    2300004: Box04
+    2300006: Box05
+    2300008: Box06
+    2300010: Box07
+    2300012: Box08
+    2300014: Box13
+    2300016: ChamferBox01
+    2300018: Cylinder01
+    2300020: Cylinder02
+    2300022: Cylinder03
+    2300024: Cylinder04
+    2300026: L_Elbow
+    2300028: L_Hand
+    2300030: L_Shoulder
+    2300032: Object01
+    2300034: R_Elbow
+    2300036: R_Hand
+    2300038: R_Shoulder
+    2300040: Sphere02
+    3300000: Box01
+    3300002: Box02
+    3300004: Box04
+    3300006: Box05
+    3300008: Box06
+    3300010: Box07
+    3300012: Box08
+    3300014: Box13
+    3300016: ChamferBox01
+    3300018: Cylinder01
+    3300020: Cylinder02
+    3300022: Cylinder03
+    3300024: Cylinder04
+    3300026: L_Elbow
+    3300028: L_Hand
+    3300030: L_Shoulder
+    3300032: Object01
+    3300034: R_Elbow
+    3300036: R_Hand
+    3300038: R_Shoulder
+    3300040: Sphere02
+    4300000: Box04
+    4300002: Box05
+    4300004: L_Shoulder
+    4300006: Box06
+    4300008: L_Elbow
+    4300010: L_Hand
+    4300012: Cylinder01
+    4300014: R_Shoulder
+    4300016: Box13
+    4300018: R_Elbow
+    4300020: R_Hand
+    4300022: Cylinder04
+    4300024: ChamferBox01
+    4300026: Cylinder02
+    4300028: Cylinder03
+    4300030: Box07
+    4300032: Object01
+    4300034: Sphere02
+    4300036: Box01
+    4300038: Box02
+    4300040: Box08
+    7400000: Take 001
+    7400002: Ready
+    7400004: Greeting
+    7400006: Love
+    7400008: Come on
+    7400010: Salute
+    7400012: Wave
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 399
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box01
+        weight: 1
+      - path: Box02
+        weight: 1
+      - path: Box04
+        weight: 1
+      - path: Box05
+        weight: 1
+      - path: Box05/L_Shoulder
+        weight: 1
+      - path: Box05/L_Shoulder/Box06
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand/Cylinder01
+        weight: 1
+      - path: Box05/R_Shoulder
+        weight: 1
+      - path: Box05/R_Shoulder/Box13
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand/Cylinder04
+        weight: 1
+      - path: Box07
+        weight: 1
+      - path: Box08
+        weight: 1
+      - path: ChamferBox01
+        weight: 1
+      - path: Cylinder02
+        weight: 1
+      - path: Cylinder03
+        weight: 1
+      - path: Object01
+        weight: 1
+      - path: Sphere02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Ready
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box01
+        weight: 1
+      - path: Box02
+        weight: 1
+      - path: Box04
+        weight: 1
+      - path: Box05
+        weight: 1
+      - path: Box05/L_Shoulder
+        weight: 1
+      - path: Box05/L_Shoulder/Box06
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand/Cylinder01
+        weight: 1
+      - path: Box05/R_Shoulder
+        weight: 1
+      - path: Box05/R_Shoulder/Box13
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand/Cylinder04
+        weight: 1
+      - path: Box07
+        weight: 1
+      - path: Box08
+        weight: 1
+      - path: ChamferBox01
+        weight: 1
+      - path: Cylinder02
+        weight: 1
+      - path: Cylinder03
+        weight: 1
+      - path: Object01
+        weight: 1
+      - path: Sphere02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Greeting
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box01
+        weight: 1
+      - path: Box02
+        weight: 1
+      - path: Box04
+        weight: 1
+      - path: Box05
+        weight: 1
+      - path: Box05/L_Shoulder
+        weight: 1
+      - path: Box05/L_Shoulder/Box06
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand/Cylinder01
+        weight: 1
+      - path: Box05/R_Shoulder
+        weight: 1
+      - path: Box05/R_Shoulder/Box13
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand/Cylinder04
+        weight: 1
+      - path: Box07
+        weight: 1
+      - path: Box08
+        weight: 1
+      - path: ChamferBox01
+        weight: 1
+      - path: Cylinder02
+        weight: 1
+      - path: Cylinder03
+        weight: 1
+      - path: Object01
+        weight: 1
+      - path: Sphere02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Love
+      takeName: Take 001
+      firstFrame: 75
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box01
+        weight: 1
+      - path: Box02
+        weight: 1
+      - path: Box04
+        weight: 1
+      - path: Box05
+        weight: 1
+      - path: Box05/L_Shoulder
+        weight: 1
+      - path: Box05/L_Shoulder/Box06
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand/Cylinder01
+        weight: 1
+      - path: Box05/R_Shoulder
+        weight: 1
+      - path: Box05/R_Shoulder/Box13
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand/Cylinder04
+        weight: 1
+      - path: Box07
+        weight: 1
+      - path: Box08
+        weight: 1
+      - path: ChamferBox01
+        weight: 1
+      - path: Cylinder02
+        weight: 1
+      - path: Cylinder03
+        weight: 1
+      - path: Object01
+        weight: 1
+      - path: Sphere02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Come on
+      takeName: Take 001
+      firstFrame: 175
+      lastFrame: 245
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box01
+        weight: 1
+      - path: Box02
+        weight: 1
+      - path: Box04
+        weight: 1
+      - path: Box05
+        weight: 1
+      - path: Box05/L_Shoulder
+        weight: 1
+      - path: Box05/L_Shoulder/Box06
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand/Cylinder01
+        weight: 1
+      - path: Box05/R_Shoulder
+        weight: 1
+      - path: Box05/R_Shoulder/Box13
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand/Cylinder04
+        weight: 1
+      - path: Box07
+        weight: 1
+      - path: Box08
+        weight: 1
+      - path: ChamferBox01
+        weight: 1
+      - path: Cylinder02
+        weight: 1
+      - path: Cylinder03
+        weight: 1
+      - path: Object01
+        weight: 1
+      - path: Sphere02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Salute
+      takeName: Take 001
+      firstFrame: 245
+      lastFrame: 315
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box01
+        weight: 1
+      - path: Box02
+        weight: 1
+      - path: Box04
+        weight: 1
+      - path: Box05
+        weight: 1
+      - path: Box05/L_Shoulder
+        weight: 1
+      - path: Box05/L_Shoulder/Box06
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand/Cylinder01
+        weight: 1
+      - path: Box05/R_Shoulder
+        weight: 1
+      - path: Box05/R_Shoulder/Box13
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand/Cylinder04
+        weight: 1
+      - path: Box07
+        weight: 1
+      - path: Box08
+        weight: 1
+      - path: ChamferBox01
+        weight: 1
+      - path: Cylinder02
+        weight: 1
+      - path: Cylinder03
+        weight: 1
+      - path: Object01
+        weight: 1
+      - path: Sphere02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Wave
+      takeName: Take 001
+      firstFrame: 315
+      lastFrame: 399
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box01
+        weight: 1
+      - path: Box02
+        weight: 1
+      - path: Box04
+        weight: 1
+      - path: Box05
+        weight: 1
+      - path: Box05/L_Shoulder
+        weight: 1
+      - path: Box05/L_Shoulder/Box06
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand
+        weight: 1
+      - path: Box05/L_Shoulder/Box06/L_Elbow/L_Hand/Cylinder01
+        weight: 1
+      - path: Box05/R_Shoulder
+        weight: 1
+      - path: Box05/R_Shoulder/Box13
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand
+        weight: 1
+      - path: Box05/R_Shoulder/Box13/R_Elbow/R_Hand/Cylinder04
+        weight: 1
+      - path: Box07
+        weight: 1
+      - path: Box08
+        weight: 1
+      - path: ChamferBox01
+        weight: 1
+      - path: Cylinder02
+        weight: 1
+      - path: Cylinder03
+        weight: 1
+      - path: Object01
+        weight: 1
+      - path: Sphere02
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
