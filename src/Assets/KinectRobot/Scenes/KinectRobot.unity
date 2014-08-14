@@ -639,9 +639,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.48148155
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture Button Num.
+  mText: "\uC81C\uC2A4\uCCD0 \uBC84\uD2BC \uAC2F\uC218"
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
@@ -1890,6 +1890,10 @@ MonoBehaviour:
     - obj: {fileID: 117310632}
       field: 
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &117310635
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2548,6 +2552,10 @@ MonoBehaviour:
     mMethodName: Search_Ports
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!1 &149091363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,6 +2827,14 @@ MonoBehaviour:
   onClick:
   - mTarget: {fileID: 1947504920}
     mMethodName: GoQuickStart
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: PlayBGM
     mParameters: []
     oneShot: 0
 --- !u!65 &162312964
@@ -3156,6 +3172,10 @@ MonoBehaviour:
     - obj: {fileID: 172721348}
       field: 
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &172721351
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3463,6 +3483,10 @@ MonoBehaviour:
     - obj: {fileID: 176507978}
       field: 
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &176507981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3619,9 +3643,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.48148155
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture Mode
+  mText: "\uC81C\uC2A4\uCCD0 \uBAA8\uB4DC"
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
@@ -3709,9 +3733,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 10
+  mText: "\uC81C \uC2A4 \uCCD0 10"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -4128,6 +4152,10 @@ MonoBehaviour:
     - obj: {fileID: 218699962}
       field: 
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &218699965
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4312,9 +4340,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.48148155
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Interval (Min)
+  mText: "\uD68C\uCC28 \uAC04\uACA9 (\uBD84)"
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
@@ -4657,6 +4685,54 @@ Transform:
   - {fileID: 545227527}
   m_Father: {fileID: 868760647}
   m_RootOrder: 0
+--- !u!1001 &246759477
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_RootMapOrder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_RootGameObject: {fileID: 1291885081}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &250161050
 GameObject:
   m_ObjectHideFlags: 0
@@ -4718,6 +4794,10 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 250161050}
       field: 
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
     oneShot: 0
 --- !u!65 &250161053
 BoxCollider:
@@ -4932,6 +5012,10 @@ MonoBehaviour:
     mMethodName: GoAvatar
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &262320733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5114,9 +5198,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.42857122
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Title
+  mText: " \uB3CC \uC544 \uAC00 \uAE30"
   mFontSize: 30
   mFontStyle: 0
   mAlignment: 0
@@ -5456,9 +5540,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 3.33333325
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Avatar
+  mText: "\uC544 \uBC14 \uD0C0"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -5777,9 +5861,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 7
+  mText: "\uC81C \uC2A4 \uCCD0 7"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -5887,6 +5971,10 @@ MonoBehaviour:
   onClick:
   - mTarget: {fileID: 1947504920}
     mMethodName: GoOption
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
     mParameters: []
     oneShot: 0
 --- !u!65 &286355515
@@ -6428,9 +6516,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 3.33333325
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture
+  mText: "\uC81C \uC2A4 \uCCD0"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -7463,6 +7551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MainControl: {fileID: 1947504920}
+  _MainControl_Internal: {fileID: 0}
   NGUI_Camera: {fileID: 53101853}
   _KinectManager: {fileID: 1947504921}
   _SimpleGestureListener: {fileID: 1947504924}
@@ -7560,9 +7649,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.48148155
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Start Time (Hr)
+  mText: "\uC2DC\uC791 \uC2DC\uAC04"
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
@@ -7906,7 +7995,7 @@ Transform:
   m_LocalScale: {x: 375.024078, y: 375.023987, z: 375.024017}
   m_Children: []
   m_Father: {fileID: 1933484275}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &414874614
 GameObject:
   m_ObjectHideFlags: 0
@@ -8070,7 +8159,7 @@ Transform:
   m_Children:
   - {fileID: 128675259}
   m_Father: {fileID: 1933484275}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &434220216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8109,9 +8198,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 3.6811595
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Standby Status
+  mText: "\uB2E4\uC74C \uACF5\uC5F0\uAE4C\uC9C0 \uB0A8\uC740 \uC2DC\uAC04"
   mFontSize: 48
   mFontStyle: 0
   mAlignment: 0
@@ -9266,6 +9355,10 @@ MonoBehaviour:
     mMethodName: Option_SetDuration_Minus
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &515676940
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9447,6 +9540,10 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 517849973}
       field: 
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
     oneShot: 0
 --- !u!65 &517849976
 BoxCollider:
@@ -9680,6 +9777,10 @@ MonoBehaviour:
     mMethodName: Option_SetPlayTime_Plus
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &526126441
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9910,6 +10011,10 @@ MonoBehaviour:
   onClick:
   - mTarget: {fileID: 1947504920}
     mMethodName: Option_SetPlayTime_Minus
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
     mParameters: []
     oneShot: 0
 --- !u!65 &535929386
@@ -10328,6 +10433,93 @@ Transform:
   - {fileID: 2099869512}
   m_Father: {fileID: 2024953445}
   m_RootOrder: 0
+--- !u!1 &558431583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100004, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 558431585}
+  - 82: {fileID: 558431584}
+  m_Layer: 0
+  m_Name: BGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &558431584
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200002, guid: 3161fecdef9b3b1499c32fa52edfa3e0,
+    type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  m_GameObject: {fileID: 558431583}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: aa27ceb837cd71742b344f00283e1337, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &558431585
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400004, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  m_GameObject: {fileID: 558431583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291885082}
+  m_RootOrder: 0
 --- !u!1 &558712223
 GameObject:
   m_ObjectHideFlags: 0
@@ -10640,6 +10832,10 @@ MonoBehaviour:
     mMethodName: Option_SetRepeat_Minus
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &572633143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10871,7 +11067,7 @@ Transform:
   - {fileID: 701016498}
   - {fileID: 1704858471}
   m_Father: {fileID: 1933484275}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &594435060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10978,9 +11174,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.48148155
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Repeat
+  mText: "\uACF5\uC5F0 \uD69F\uC218"
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
@@ -11454,6 +11650,132 @@ Transform:
   - {fileID: 608075191}
   m_Father: {fileID: 688072479}
   m_RootOrder: 0
+--- !u!1 &624960528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 624960529}
+  - 114: {fileID: 624960532}
+  - 65: {fileID: 624960531}
+  - 114: {fileID: 624960530}
+  m_Layer: 8
+  m_Name: Btn_Demo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &624960529
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624960528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -183, y: -50, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1929958445}
+  m_Father: {fileID: 1840403735}
+  m_RootOrder: 1
+--- !u!114 &624960530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624960528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 624960528}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  duration: .200000003
+  dragHighlight: 0
+  hoverSprite: UI_Btn_Over
+  pressedSprite: UI_Btn_Press
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Play_GestureDemo
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
+--- !u!65 &624960531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624960528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 100, y: 76, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &624960532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624960528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: .00392156886}
+  mPivot: 4
+  mWidth: 100
+  mHeight: 76
+  mDepth: 16
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 1.31578946
+  mType: 1
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+  mFlip: 0
+  centerType: 1
+  leftType: 1
+  rightType: 1
+  bottomType: 1
+  topType: 1
+  mAtlas: {fileID: 11400000, guid: c16b679a291e7c44ca37f7471ac19d29, type: 2}
+  mSpriteName: UI_Btn_Normal
+  mFillCenter: 1
 --- !u!1 &627058368
 GameObject:
   m_ObjectHideFlags: 0
@@ -11993,7 +12315,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 668527169}
   - 114: {fileID: 668527170}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Lbl_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12235,11 +12557,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676992820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 20, z: 0}
+  m_LocalPosition: {x: -15, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 953294967}
-  m_RootOrder: 1
+  m_Father: {fileID: 1840403735}
+  m_RootOrder: 2
 --- !u!114 &676992822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12269,19 +12591,19 @@ MonoBehaviour:
     absolute: 0
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 0
-  mWidth: 65
-  mHeight: 17
+  mPivot: 2
+  mWidth: 400
+  mHeight: 80
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.82352948
+  aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: e8661fd4632d2d24f9d319ee767af445, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: D 0
-  mFontSize: 15
+  mText: "\uACF5\uC5F0 \uC885\uB8CC\uAE4C\uC9C0 0"
+  mFontSize: 20
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -12677,6 +12999,10 @@ MonoBehaviour:
     mMethodName: Option_SetDuration_Plus
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &702154937
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13036,6 +13362,10 @@ MonoBehaviour:
     oneShot: 0
   - mTarget: {fileID: 1947504920}
     mMethodName: SaveOptions
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
     mParameters: []
     oneShot: 0
 --- !u!65 &719571424
@@ -13502,9 +13832,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.42857122
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Option
+  mText: "\uC635     \uC158"
   mFontSize: 30
   mFontStyle: 0
   mAlignment: 0
@@ -14151,6 +14481,10 @@ MonoBehaviour:
     mMethodName: Option_SetStartTime_Plus
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &793874155
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14610,6 +14944,10 @@ MonoBehaviour:
     mMethodName: Option_SetButton_Plus
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &810789707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14760,6 +15098,10 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 816746079}
       field: 
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
     oneShot: 0
 --- !u!65 &816746082
 BoxCollider:
@@ -15486,9 +15828,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 3.29487181
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Disconnected
+  mText: "\uC5F0\uACB0 \uB04A\uC5B4\uC9D0"
   mFontSize: 42
   mFontStyle: 0
   mAlignment: 0
@@ -15649,9 +15991,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 4
+  mText: "\uC81C \uC2A4 \uCCD0 4"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -15829,9 +16171,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 3.29487181
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Disconnected
+  mText: "\uC5F0\uACB0 \uB04A\uC5B4\uC9D0"
   mFontSize: 42
   mFontStyle: 0
   mAlignment: 0
@@ -16300,6 +16642,10 @@ MonoBehaviour:
     mMethodName: GoGesture
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &880222445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16428,9 +16774,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 6
+  mText: "\uC81C \uC2A4 \uCCD0 6"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -16603,9 +16949,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 1
+  mText: "\uC81C \uC2A4 \uCCD0 1"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -17679,7 +18025,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1976360574}
-  - {fileID: 676992821}
   m_Father: {fileID: 1133353804}
   m_RootOrder: 6
 --- !u!114 &953294968
@@ -17907,6 +18252,10 @@ MonoBehaviour:
     mMethodName: AppExit
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &975588620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18053,7 +18402,7 @@ Transform:
   m_LocalScale: {x: 1.00006402, y: 1.00006402, z: 1.00006402}
   m_Children: []
   m_Father: {fileID: 1933484275}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &982621417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18838,7 +19187,7 @@ GameObject:
   - 114: {fileID: 1023208755}
   - 65: {fileID: 1023208754}
   - 114: {fileID: 1023208753}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Btn_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18885,6 +19234,10 @@ MonoBehaviour:
   onClick:
   - mTarget: {fileID: 1947504920}
     mMethodName: GoBack
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
     mParameters: []
     oneShot: 0
 --- !u!65 &1023208754
@@ -19344,6 +19697,10 @@ MonoBehaviour:
     mMethodName: Option_SetInterval_Plus
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &1057404630
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19521,6 +19878,14 @@ MonoBehaviour:
   onClick:
   - mTarget: {fileID: 1947504920}
     mMethodName: GoStart
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: PlayBGM
     mParameters: []
     oneShot: 0
 --- !u!65 &1068763596
@@ -19866,9 +20231,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 9
+  mText: "\uC81C \uC2A4 \uCCD0 9"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -20045,9 +20410,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.48148155
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Duration (Min)
+  mText: "\uAC1C\uBCC4 \uACF5\uC5F0 \uC2DC\uAC04 (\uBD84)"
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
@@ -21596,6 +21961,10 @@ MonoBehaviour:
     mMethodName: Option_SetAvatarMode
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &1180897192
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21716,6 +22085,10 @@ MonoBehaviour:
   onClick:
   - mTarget: {fileID: 1947504920}
     mMethodName: Option_SetRepeat_Plus
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
     mParameters: []
     oneShot: 0
 --- !u!65 &1181033773
@@ -22621,6 +22994,10 @@ MonoBehaviour:
     mMethodName: Option_SetGestureMode
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &1225464114
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22917,9 +23294,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 4.53061247
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Option
+  mText: "\uC635     \uC158"
   mFontSize: 77
   mFontStyle: 0
   mAlignment: 0
@@ -23385,6 +23762,10 @@ MonoBehaviour:
     - obj: {fileID: 1272986260}
       field: 
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &1272986263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23639,6 +24020,10 @@ MonoBehaviour:
     mMethodName: Option_SetButton_Minus
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!65 &1280341592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23890,6 +24275,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1909696147}
   m_RootOrder: 0
+--- !u!1 &1291885081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1291885082}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1291885082
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  m_GameObject: {fileID: 1291885081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 558431585}
+  - {fileID: 2063868308}
+  - {fileID: 2045874380}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1298011674
 GameObject:
   m_ObjectHideFlags: 0
@@ -24172,9 +24587,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 3
+  mText: "\uC81C \uC2A4 \uCCD0 3"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -24653,6 +25068,10 @@ MonoBehaviour:
   onClick:
   - mTarget: {fileID: 1947504920}
     mMethodName: Option_SetInterval_Minus
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
     mParameters: []
     oneShot: 0
 --- !u!65 &1337845967
@@ -26285,6 +26704,10 @@ MonoBehaviour:
     mMethodName: Connect_Port
     mParameters: []
     oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
+    oneShot: 0
 --- !u!1 &1440638429
 GameObject:
   m_ObjectHideFlags: 0
@@ -26874,9 +27297,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.48148155
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Play Time (Sec)
+  mText: "\uAC01 \uBAA8\uB4DC\uC758 \uD50C\uB808\uC774 \uC2DC\uAC04 (\uCD08)"
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
@@ -27600,6 +28023,96 @@ Transform:
   - {fileID: 1964576394}
   m_Father: {fileID: 1963446166}
   m_RootOrder: 0
+--- !u!1 &1526964835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1526964836}
+  - 114: {fileID: 1526964837}
+  m_Layer: 8
+  m_Name: Lbl_Title3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1526964836
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1526964835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -29.3764267, y: -292.842712, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1933484275}
+  m_RootOrder: 2
+--- !u!114 &1526964837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1526964835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 219
+  mHeight: 66
+  mDepth: 0
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 3.31818175
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
+  mFont: {fileID: 0}
+  mText: "\uD0A4\uB125\uD2B8 \uB85C\uBD07"
+  mFontSize: 20
+  mFontStyle: 0
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 1
+  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1, y: 4.13000011}
+  mOverflow: 0
+  mMaterial: {fileID: 0}
+  mApplyGradient: 1
+  mGradientTop: {r: 1, g: 1, b: 1, a: 1}
+  mGradientBottom: {r: .470588237, g: .470588237, b: .470588237, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &1527581813
 GameObject:
   m_ObjectHideFlags: 0
@@ -28045,7 +28558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1546965839
 Transform:
   m_ObjectHideFlags: 0
@@ -28188,6 +28701,10 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 1547603629}
       field: 
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
     oneShot: 0
 --- !u!65 &1547603632
 BoxCollider:
@@ -28542,9 +29059,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5.82352924
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Connect
+  mText: "\uB85C\uBD07\uACFC \uC5F0\uACB0"
   mFontSize: 30
   mFontStyle: 0
   mAlignment: 0
@@ -28934,9 +29451,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 4.21875
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Start
+  mText: "\uC2DC     \uC791"
   mFontSize: 49
   mFontStyle: 0
   mAlignment: 0
@@ -29504,7 +30021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1636294588
 Transform:
   m_ObjectHideFlags: 0
@@ -30090,9 +30607,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 8
+  mText: "\uC81C \uC2A4 \uCCD0 8"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -30293,7 +30810,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1691962967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 49.4000015, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .363299549, y: .363299489, z: .363299489}
   m_Children: []
   m_Father: {fileID: 2111854590}
@@ -30327,19 +30844,19 @@ MonoBehaviour:
     absolute: 0
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
+  mPivot: 7
   mWidth: 2982
-  mHeight: 434
+  mHeight: 1044
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 6.87096786
+  aspectRatio: 2.85632181
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Waiting Player
-  mFontSize: 198
+  mText: "\uD0A4\uB125\uD2B8 \uC55E\uC5D0 \uC11C\uC138\uC694"
+  mFontSize: 120
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -30353,8 +30870,8 @@ MonoBehaviour:
   mApplyGradient: 1
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 1, g: .558620691, b: 0, a: 1}
-  mSpacingX: -18
-  mSpacingY: 0
+  mSpacingX: 0
+  mSpacingY: 30
   mShrinkToFit: 0
   mMaxLineWidth: 0
   mMaxLineHeight: 0
@@ -30418,6 +30935,10 @@ MonoBehaviour:
   onClick:
   - mTarget: {fileID: 1947504920}
     mMethodName: Option_SetStartTime_Minus
+    mParameters: []
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
     mParameters: []
     oneShot: 0
 --- !u!65 &1692544830
@@ -30860,6 +31381,10 @@ MonoBehaviour:
     mParameters:
     - obj: {fileID: 1707320004}
       field: 
+    oneShot: 0
+  - mTarget: {fileID: 1947504920}
+    mMethodName: Sound_Click
+    mParameters: []
     oneShot: 0
 --- !u!65 &1707320007
 BoxCollider:
@@ -32066,9 +32591,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 2
+  mText: "\uC81C \uC2A4 \uCCD0 2"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -32183,9 +32708,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 6.48148155
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Avatar Mode
+  mText: "\uC544\uBC14\uD0C0 \uBAA8\uB4DC"
   mFontSize: 23
   mFontStyle: 0
   mAlignment: 0
@@ -33284,6 +33809,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1023208752}
+  - {fileID: 624960529}
+  - {fileID: 676992821}
   m_Father: {fileID: 1133353804}
   m_RootOrder: 1
 --- !u!114 &1840403736
@@ -34225,18 +34752,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 0
-  mWidth: 65
-  mHeight: 17
+  mWidth: 200
+  mHeight: 30
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.82352948
+  aspectRatio: 6.66666651
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: e8661fd4632d2d24f9d319ee767af445, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: R 0/0
-  mFontSize: 15
+  mText: "\uD68C\uCC28 0/0"
+  mFontSize: 25
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -34664,6 +35191,96 @@ Transform:
   - {fileID: 1728690413}
   m_Father: {fileID: 162175150}
   m_RootOrder: 0
+--- !u!1 &1929958444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1929958445}
+  - 114: {fileID: 1929958446}
+  m_Layer: 8
+  m_Name: Lbl_Demo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929958445
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1929958444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 624960529}
+  m_RootOrder: 0
+--- !u!114 &1929958446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1929958444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  rightAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  bottomAnchor:
+    target: {fileID: 0}
+    relative: 0
+    absolute: 0
+  topAnchor:
+    target: {fileID: 0}
+    relative: 1
+    absolute: 0
+  updateAnchors: 1
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mWidth: 100
+  mHeight: 45
+  mDepth: 17
+  autoResizeBoxCollider: 0
+  hideIfOffScreen: 0
+  keepAspectRatio: 0
+  aspectRatio: 2.22222233
+  keepCrispWhenShrunk: 1
+  mTrueTypeFont: {fileID: 12800000, guid: ff084c286fed14742b99a2f6c5f34d24, type: 3}
+  mFont: {fileID: 0}
+  mText: Demo
+  mFontSize: 30
+  mFontStyle: 0
+  mAlignment: 0
+  mEncoding: 1
+  mMaxLineCount: 0
+  mEffectStyle: 1
+  mEffectColor: {r: .635294139, g: .286274523, b: .192156866, a: 1}
+  mSymbols: 1
+  mEffectDistance: {x: 1.22000003, y: -1.35000002}
+  mOverflow: 0
+  mMaterial: {fileID: 0}
+  mApplyGradient: 0
+  mGradientTop: {r: .298039228, g: .290196091, b: .376470596, a: 1}
+  mGradientBottom: {r: 0, g: 0, b: 0, a: 1}
+  mSpacingX: 0
+  mSpacingY: 0
+  mShrinkToFit: 0
+  mMaxLineWidth: 0
+  mMaxLineHeight: 0
+  mLineWidth: 0
+  mMultiline: 1
 --- !u!1 &1930424095
 GameObject:
   m_ObjectHideFlags: 0
@@ -34737,7 +35354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1933484275
 Transform:
   m_ObjectHideFlags: 0
@@ -34750,6 +35367,7 @@ Transform:
   m_Children:
   - {fileID: 1996961965}
   - {fileID: 797661568}
+  - {fileID: 1526964836}
   - {fileID: 594435059}
   - {fileID: 412706649}
   - {fileID: 982621416}
@@ -34806,7 +35424,7 @@ MonoBehaviour:
   alwaysOnScreen: 0
   anchorOffset: 0
   renderQueue: 0
-  startingRenderQueue: 3009
+  startingRenderQueue: 3012
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 300, w: 200}
@@ -34979,6 +35597,7 @@ GameObject:
   - 114: {fileID: 1947504918}
   - 114: {fileID: 1947504921}
   - 114: {fileID: 1947504924}
+  - 81: {fileID: 1947504923}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -35045,11 +35664,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _RobotProxy: {fileID: 1947504918}
   _KinectManager: {fileID: 1947504921}
+  _bIsDemoPlay: 0
+  _goBGM: {fileID: 558431583}
+  _goSnd_Click: {fileID: 2063868307}
+  _goSnd_Success: {fileID: 2045874379}
   _goUI_Title: {fileID: 786042083}
   _goPnl_Title: {fileID: 1636294587}
   _goPnl_Option: {fileID: 1546965838}
   _goPnl_Deco: {fileID: 1933484274}
   _goLbl_Standby: {fileID: 434220214}
+  _ULbl_Standby: {fileID: 434220216}
   _ULbl_StandbyTime: {fileID: 128675260}
   _goUI_Waiting: {fileID: 1133353803}
   _goObj_Robot: {fileID: 1354433545}
@@ -35058,6 +35682,8 @@ MonoBehaviour:
   _goBtnStart: {fileID: 1068763593}
   _UILblRobotMessage: {fileID: 866342299}
   _UILblKinectMessage: {fileID: 858355422}
+  _goBtnDemo: {fileID: 624960528}
+  _goAncCenter: {fileID: 1948728429}
   _goGestureModeBtn: {fileID: 880222442}
   _goAvatarModeBtn: {fileID: 262320730}
   _goCursor: {fileID: 400396459}
@@ -35205,6 +35831,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!81 &1947504923
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1947504917}
+  m_Enabled: 1
 --- !u!114 &1947504924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35837,18 +36470,18 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 0
-  mWidth: 65
-  mHeight: 17
+  mWidth: 200
+  mHeight: 30
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.82352948
+  aspectRatio: 6.66666651
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: e8661fd4632d2d24f9d319ee767af445, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: R 0/0
-  mFontSize: 15
+  mText: "\uD68C\uCC28 0/0"
+  mFontSize: 25
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -36727,9 +37360,9 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 849d79116305afd439517790289b7366, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: bffd084b68929b74a8e08e032362d954, type: 3}
   mFont: {fileID: 0}
-  mText: Gesture 5
+  mText: "\uC81C \uC2A4 \uCCD0 5"
   mFontSize: 47
   mFontStyle: 0
   mAlignment: 0
@@ -37497,6 +38130,93 @@ Transform:
   - {fileID: 8212453}
   m_Father: {fileID: 1890438085}
   m_RootOrder: 0
+--- !u!1 &2045874379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2045874380}
+  - 82: {fileID: 2045874381}
+  m_Layer: 0
+  m_Name: Success
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2045874380
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  m_GameObject: {fileID: 2045874379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291885082}
+  m_RootOrder: 2
+--- !u!82 &2045874381
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: 3161fecdef9b3b1499c32fa52edfa3e0,
+    type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  m_GameObject: {fileID: 2045874379}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: e524703be381d4446bdfe4a620de012d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &2046785225
 GameObject:
   m_ObjectHideFlags: 0
@@ -37620,6 +38340,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1733757595}
   m_RootOrder: 0
+--- !u!1 &2063868307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100006, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2063868308}
+  - 82: {fileID: 2063868309}
+  m_Layer: 0
+  m_Name: Click
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2063868308
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400006, guid: 3161fecdef9b3b1499c32fa52edfa3e0, type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  m_GameObject: {fileID: 2063868307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291885082}
+  m_RootOrder: 1
+--- !u!82 &2063868309
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200004, guid: 3161fecdef9b3b1499c32fa52edfa3e0,
+    type: 2}
+  m_PrefabInternal: {fileID: 246759477}
+  m_GameObject: {fileID: 2063868307}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: df86f4aab600e51489e9eca7ebd61abe, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &2066598182
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,7 +71,10 @@ public class HandCursor : MonoBehaviour
 
 			SelectGestureBtn(p_Hit.gameObject);
 
-
+			if (_MainControl != null)
+				_MainControl.Sound_Click();
+			if (_MainControl_Internal != null)
+				_MainControl_Internal.Sound_Click();
 		}
 
 

@@ -20,6 +20,19 @@ public enum EMode
 
 
 
+public class CTimeTable
+{
+	public int	_nCount = 0;
+
+	public int	_nStartPlay = 0;
+	public int	_nEndPlay = 0;
+	//public int	_nStartBreak = 0;
+	public int	_nEndBreak = 0;
+}
+
+
+
+
 
 
 public class MainControl : MonoBehaviour 
@@ -30,9 +43,15 @@ public class MainControl : MonoBehaviour
 	bool IsConnect_Robot = false;
 	bool IsConnect_Kinect = false;
 
+	public bool _bIsDemoPlay = false;
+
 	EMode	_eCurMode = EMode.TITLE;
 	string	_statusMessage = "Ready";
 
+
+	public GameObject		_goBGM;
+	public GameObject		_goSnd_Click;
+	public GameObject		_goSnd_Success;
 
 	// NGUI ========================
 	public GameObject		_goUI_Title;
@@ -41,6 +60,7 @@ public class MainControl : MonoBehaviour
 	public GameObject		_goPnl_Deco;
 
 	public GameObject		_goLbl_Standby;
+	public UILabel			_ULbl_Standby;
 	public UILabel			_ULbl_StandbyTime;
 
 	public GameObject		_goUI_Waiting;
@@ -53,6 +73,8 @@ public class MainControl : MonoBehaviour
 	public UILabel			_UILblRobotMessage;
 	public UILabel			_UILblKinectMessage;
 
+	public GameObject		_goBtnDemo;
+	public GameObject		_goAncCenter;
 	public GameObject		_goGestureModeBtn;
 	public GameObject		_goAvatarModeBtn;
 
@@ -64,7 +86,7 @@ public class MainControl : MonoBehaviour
 	public GameObject		_goRobot;
 	public UILabel			_UILblMessage;
 	public UILabel			_UILblTimer;
-	String					_strMode = "";
+	String					_strModeMessage = "";
 
 	public UILabel			_UILblRepeat_Title;
 	public UILabel			_UILblRepeat_Waiting;
@@ -76,6 +98,7 @@ public class MainControl : MonoBehaviour
 	public int		_nOption_StartTime = 1;
 	public int		_nOption_Repeat = 1;
 	public int		_nOption_Interval = 1;
+	int				_nOption_Interval_Include = 1; // 옵션에서 보여질 회차간격-----
 	public int		_nOption_Duration = 1;
 	public int		_nOption_PlayTime = 10;
 	public int		_nOption_Button = 10;
@@ -121,6 +144,9 @@ public class MainControl : MonoBehaviour
 	public EachGestureJoint		_scr_Arm_R;
 	public EachGestureJoint		_scr_Hand_R;
 
+
+
+	public List<CTimeTable> _lstTimeTable;
 
 
 
@@ -171,15 +197,16 @@ public class MainControl : MonoBehaviour
 			_Ulbl_Repeat.text = _nOption_Repeat.ToString();
 			Show_RepeatCounter();
 		}
-		if (PlayerPrefs.GetInt("PP_Interval") != 0 )
-		{
-			_nOption_Interval = PlayerPrefs.GetInt("PP_Interval");
-			_Ulbl_Interval.text = _nOption_Interval.ToString();
-		}
 		if (PlayerPrefs.GetInt("PP_Duration") != 0 )
 		{
 			_nOption_Duration = PlayerPrefs.GetInt("PP_Duration");
 			_Ulbl_Duration.text = _nOption_Duration.ToString();
+		}
+		if (PlayerPrefs.GetInt("PP_Interval") != 0 )
+		{
+			_nOption_Interval = PlayerPrefs.GetInt("PP_Interval");
+			_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
+			_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
 		}
 		if (PlayerPrefs.GetInt("PP_PlayTime") != 0 )
 		{
@@ -198,6 +225,8 @@ public class MainControl : MonoBehaviour
 
 		_nOption_Avatar = PlayerPrefs.GetInt("PP_AvatarMode");
 		Change_Tollge_Avatar(_nOption_Avatar);
+
+		Set_TimeTable();
 	}
 
 
@@ -212,6 +241,36 @@ public class MainControl : MonoBehaviour
 		PlayerPrefs.SetInt("PP_Button",_nOption_Button);
 		PlayerPrefs.SetInt("PP_GestureMode",_nOption_Gesture);
 		PlayerPrefs.SetInt("PP_AvatarMode",_nOption_Avatar);
+
+		Set_TimeTable();
+	}
+
+
+
+	public void Set_TimeTable()
+	{
+		_lstTimeTable = new List<CTimeTable>();
+		int _nTime = _nOption_StartTime * 3600;
+		
+		
+		for (int i = 1; i <= _nOption_Repeat; i++)
+		{
+			CTimeTable timetable = new CTimeTable();
+			timetable._nCount = i;
+			timetable._nStartPlay = _nTime;
+			timetable._nEndPlay = _nTime + (_nOption_Duration * 60);
+			_nTime = timetable._nEndPlay;
+			timetable._nEndBreak = _nTime + (_nOption_Interval * 60);
+			_nTime = timetable._nEndBreak;
+			_lstTimeTable.Add(timetable);
+			
+			Debug.Log("Count: " + timetable._nCount.ToString() +
+			          "   Start: " + timetable._nStartPlay.ToString() + 
+			          "   End: " + timetable._nEndPlay.ToString() +
+			          "   EndBreak: " + timetable._nEndBreak.ToString() );
+		}
+		
+		Debug.Log("TableCount " + _lstTimeTable.Count.ToString());
 	}
 
 
@@ -228,7 +287,7 @@ public class MainControl : MonoBehaviour
 	{
 		_RobotProxy.portName = _UIPortList.value;
 		_RobotProxy.Connect();
-		_UILblRobotMessage.text = "Tring..."; // NGUI
+		_UILblRobotMessage.text = "연결 시도중..."; // NGUI
 		_goBtnConnect.SetActive(false);	// NGUI
 	}
 
@@ -238,7 +297,7 @@ public class MainControl : MonoBehaviour
 		if (_KinectManager.IsInitialized())
 		{
 			IsConnect_Kinect = true;
-			_UILblKinectMessage.text = "Connceted"; // NGUI
+			_UILblKinectMessage.text = "연결됨"; // NGUI
 		}
 
 		Invoke("CheckKinect", 1f);
@@ -279,8 +338,8 @@ public class MainControl : MonoBehaviour
 
 	void Show_RepeatCounter()
 	{
-		_UILblRepeat_Title.text = "R " + _nCurRepeat.ToString() + "/" + _nOption_Repeat.ToString();
-		_UILblRepeat_Waiting.text = "R " + _nCurRepeat.ToString() + "/" + _nOption_Repeat.ToString();
+		_UILblRepeat_Title.text = "회차 " + _nCurRepeat.ToString() + "/" + _nOption_Repeat.ToString();
+		_UILblRepeat_Waiting.text = "회차 " + _nCurRepeat.ToString() + "/" + _nOption_Repeat.ToString();
 	}
 
 
@@ -310,6 +369,16 @@ public class MainControl : MonoBehaviour
 		_goObj_Robot.SetActive(false);
 		_goRobot.transform.position = new Vector3(0f, 200f, 0f);
 		Show_RepeatCounter();
+		_KinectManager.DisplayUserMap = false;
+
+		_goBGM.audio.Stop();
+
+		CancelInvoke("Show_StanbyTime");
+		CancelInvoke("Show_ImtervalTime");
+		CancelInvoke("DurationCountDown");
+		CancelInvoke("AvatarCountDown");
+		CancelInvoke("CheckGesture");
+		CancelInvoke("CheckPlayer");
 	}
 
 
@@ -323,6 +392,7 @@ public class MainControl : MonoBehaviour
 		_goUI_Waiting.SetActive(false);
 		_goObj_Robot.SetActive(false);
 		_goRobot.transform.position = new Vector3(0f, 200f, 0f);
+		_KinectManager.DisplayUserMap = false;
 	}
 
 
@@ -339,17 +409,54 @@ public class MainControl : MonoBehaviour
 
 	public void GoStart()
 	{
-		if (_nOption_StartTime <= DateTime.Now.Hour)
+		int _nCurTime;
+		_nCurTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + (DateTime.Now.Second);
+
+
+		bool _bReturn = false;
+
+
+		foreach(CTimeTable table in _lstTimeTable)
 		{
-			if (AddRepeatCounter())
+			if (table._nStartPlay > _nCurTime)
 			{
-				_nCurDuration = _nOption_Duration * 60; // 회당 제한 시간-
+				GoStandby(true); // 시작시간을 기다림-
+				_bReturn = true;
+				break;
+			}
+
+			if ( (table._nStartPlay <= _nCurTime) && (table._nEndPlay > _nCurTime) )
+			{
+				_nCurRepeat = table._nCount;
+				Show_RepeatCounter();
+				_nCurDuration = table._nEndPlay - _nCurTime;
 				DurationCountDown();
 				GoWaiting();
+				_bReturn = true;
+				break;
+			}
+			else if ( (table._nEndPlay <= _nCurTime) && (table._nEndBreak > _nCurTime) )
+			{
+				_nCurRepeat = table._nCount;
+				Show_RepeatCounter();
+				_nCurDuration = -1;
+				_nCurInterval = table._nEndBreak - _nCurTime;
+				_eCurMode = EMode.WAITING;
+				DurationCountDown();
+				_bReturn = true;
+				break;
 			}
 		}
-		else
-			GoStandby(true); // 시작시간을 기다림-
+
+		if (_bReturn)
+			return;
+
+		_nCurRepeat = _nOption_Repeat;
+		Show_RepeatCounter();
+		_nCurDuration = -1;
+		_nCurInterval = -1;
+		_eCurMode = EMode.WAITING;
+		DurationCountDown();
 	}
 
 
@@ -373,17 +480,28 @@ public class MainControl : MonoBehaviour
 		}
 		else // 공연을 끝내고 다음공연을 기다림--
 		{
-			_nCurInterval = _nOption_Interval * 60;
+			int _nCurTime;
+			_nCurTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + (DateTime.Now.Second);
+
+			_nCurInterval = (_lstTimeTable[_nCurRepeat-1]._nEndBreak - _nCurTime);
 			CancelInvoke("Show_ImtervalTime");
+			CancelInvoke("AvatarCountDown");
 			Invoke("Show_ImtervalTime", 1f);
 		}
+		CancelInvoke("DurationCountDown");
+		CancelInvoke("CheckPlayer");
+		_goBGM.audio.Stop();
+		_KinectManager.DisplayUserMap = false;
 	}
 
 
 	// 시작시간을 기다림--------------------------------------------------------
 	void Show_StanbyTime()
 	{
-		if (_nOption_StartTime <= DateTime.Now.Hour)
+		int _nCurTime;
+		_nCurTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + (DateTime.Now.Second);
+
+		if (_lstTimeTable[0]._nStartPlay <= _nCurTime)
 		{
 			if (AddRepeatCounter())
 			{
@@ -396,7 +514,8 @@ public class MainControl : MonoBehaviour
 
 		if (_nCurRepeat >= _nOption_Repeat)
 		{
-			_ULbl_StandbyTime.text = "CLOSED";
+			_ULbl_Standby.text = "";
+			_ULbl_StandbyTime.text = "공연 종료";
 			return;
 		}
 
@@ -418,6 +537,13 @@ public class MainControl : MonoBehaviour
 	// 다음공연을 기다림-----------------------------------------------------------
 	void Show_ImtervalTime()
 	{
+		if (_nCurRepeat >= _nOption_Repeat)
+		{
+			_ULbl_Standby.text = "";
+			_ULbl_StandbyTime.text = "공연 종료";
+			return;
+		}
+
 		if (_nCurInterval <= -1)
 		{
 			if (AddRepeatCounter())
@@ -425,17 +551,10 @@ public class MainControl : MonoBehaviour
 				_nCurDuration = _nOption_Duration * 60; // 회당 제한 시간-
 				DurationCountDown();
 				GoWaiting();
+				PlayBGM();
 			}
 			return;
 		}
-		
-		if (_nCurRepeat >= _nOption_Repeat)
-		{
-			_ULbl_StandbyTime.text = "CLOSED";
-			return;
-		}
-
-
 
 		int nTime = (int)Mathf.Floor(_nCurInterval / 360);
 		string strTime = string.Format("{0:D2}", nTime);
@@ -457,7 +576,10 @@ public class MainControl : MonoBehaviour
 
 
 
-
+	public void PlayBGM()
+	{
+		_goBGM.audio.Play();
+	}
 
 
 
@@ -475,8 +597,11 @@ public class MainControl : MonoBehaviour
 		Clear_Guide();
 		_goSuccessGesture.SetActive(false);
 		CancelInvoke("CheckPlayer");
+		CancelInvoke("CheckGesture");
 		CancelInvoke("AvatarCountDown");
 		_UILblTimer.enabled = false;
+		_strModeMessage = "한 손을 앞으로 뻗어\n버튼을 선택한 뒤\n동그라미가 그려질 때까지\n움직이지 마세요";
+		_UILblMessage.text = _strModeMessage;
 		CheckPlayer();
 
 		if (_nOption_Gesture == 1)
@@ -491,20 +616,38 @@ public class MainControl : MonoBehaviour
 
 		FollowOnOff(false);
 		Show_RepeatCounter();
+		_goBtnDemo.SetActive(true);
+		_KinectManager.DisplayUserMap = true;
 	}
 
 
 	void DurationCountDown()
 	{
-		if (_nCurDuration <= -1)
+		if ( (_nCurDuration <= -1) && (_eCurMode == EMode.WAITING) )
 		{
 			GoStandby(false); // 다음공연까지의 시간을 기다림-
 			return;
 		}
 		
-		_UILblDuration.text = "D " + _nCurDuration.ToString();
 		_nCurDuration --;
-
+		
+		if (_nCurDuration <= 29)
+		{
+			//_UILblDuration.color = Color.red;
+			_UILblDuration.fontSize = 50 - _nCurDuration;
+		}
+		//else
+			//_UILblDuration.color = Color.white;
+		
+		
+		if (_nCurDuration > 0)
+			_UILblDuration.text = "공연 종료까지 " + _nCurDuration.ToString();
+		else
+		{
+			_UILblDuration.fontSize = 50;
+			_UILblDuration.text = "공연 종료합니다";
+		}
+		
 		CancelInvoke("DurationCountDown");
 		Invoke("DurationCountDown", 1f);
 	}
@@ -527,13 +670,14 @@ public class MainControl : MonoBehaviour
 		_goWaitingSet.SetActive(false);
 		_goGestureBtnSet.SetActive(true);
 		_goObj_Robot.SetActive(true);
-		_strMode = "Gesture Mode";
-		_UILblMessage.text = _strMode;
+		_strModeMessage = "버튼을 선택하세요";
+		_UILblMessage.text = _strModeMessage;
 		_UILblTimer.enabled = true;
 		_nAvatarTimer = _nOption_PlayTime;
 		AvatarCountDown();
 		_nGestureNum = -2;
 		SelectGesture(-1);
+		_goBtnDemo.SetActive(false);
 	}
 
 
@@ -570,6 +714,9 @@ public class MainControl : MonoBehaviour
 		SetGestureGuide(p_Num);
 
 		CheckGesture();
+
+		_strModeMessage = "표시된 동작을 따라해보세요";
+		_UILblMessage.text = _strModeMessage;
 	}
 
 
@@ -592,6 +739,7 @@ public class MainControl : MonoBehaviour
 		if ( (_scr_Arm_L._bIsContact) && (_scr_Hand_L._bIsContact) && (_scr_Arm_R._bIsContact) && (_scr_Hand_R._bIsContact) )
 		{
 			_goSuccessGesture.SetActive(true);
+			_goSnd_Success.audio.Play();
 			Clear_Guide();
 			_CMDModule.Value = (Byte)(_nGestureNum + 1);
 			CheckGestureEnd();
@@ -609,7 +757,17 @@ public class MainControl : MonoBehaviour
 	void CheckGestureEnd()
 	{
 		if (_CMDModule.Value == 0)
+		{
+			_goCursor.SetActive(true);
 			ResetGestureBtn();
+
+			if (_bIsDemoPlay)
+			{
+				_goAncCenter.SetActive(true);
+				_goBtnDemo.SetActive(true);
+			}
+			_bIsDemoPlay = false;
+		}
 		else
 			Invoke("CheckGestureEnd", 0.1f);
 	}
@@ -620,11 +778,40 @@ public class MainControl : MonoBehaviour
 
 	void ResetGestureBtn()
 	{
+		if (_eCurMode != EMode.GESTURE)
+			return;
+
+		_strModeMessage = "버튼을 선택하세요";
+		_UILblMessage.text = _strModeMessage;
+
 		_goCursor.SetActive(true);
 		SelectGesture(-1);
 		_goSuccessGesture.SetActive(false);
 		Clear_Guide();
 	}
+
+
+
+
+
+	// 데모 제스쳐 플레이--------------
+	public void Play_GestureDemo()
+	{
+		_nGestureNum = 10;
+		_bIsDemoPlay = true;
+		_goCursor.SetActive(false);
+		_goAncCenter.SetActive(false);
+		_goBtnDemo.SetActive(false);
+		_CMDModule.Value = (Byte)(_nGestureNum + 1);
+
+		CheckGestureEnd();
+	}
+
+
+
+
+
+
 
 
 
@@ -639,26 +826,33 @@ public class MainControl : MonoBehaviour
 		_goWaitingSet.SetActive(false);
 		_goGestureBtnSet.SetActive(false);
 		_goObj_Robot.SetActive(true);
-		_strMode = "Avatar Mode";
-		_UILblMessage.text = _strMode;
+		_strModeMessage = "팔을 움직여 보세요.\n로봇이 따라합니다";
+		_UILblMessage.text = _strModeMessage;
 		_UILblTimer.enabled = true;
 		_nAvatarTimer = _nOption_PlayTime;
 		AvatarCountDown();
-
 		FollowOnOff(true);
+		_goBtnDemo.SetActive(false);
 	}
 
 
 
 	void AvatarCountDown()
 	{
+		_UILblTimer.text = _nAvatarTimer.ToString();
+
 		if (_nAvatarTimer <= -1)
 		{
-			GoWaiting();
-			return;
+			_UILblTimer.text = "0";
+
+			if ( (_eCurMode == EMode.AVATAR) || ((_eCurMode == EMode.GESTURE) && (_CMDModule.Value == 0)) )
+			{
+				GoWaiting();
+				return;
+			}
 		}
 
-		_UILblTimer.text = _nAvatarTimer.ToString();
+
 		_nAvatarTimer --;
 
 		CancelInvoke("AvatarCountDown");
@@ -712,16 +906,19 @@ public class MainControl : MonoBehaviour
 		{
 			_goLinePerson.SetActive(false);
 			_goRobot.transform.position = new Vector3(0f, 100f, 0f);
-			_UILblMessage.text = _strMode;
+			_UILblMessage.text = _strModeMessage;
 		}
 		else
 		{
 			ResetGestureBtn();
 			_goLinePerson.SetActive(true);
 			_goRobot.transform.position = new Vector3(0f, 200f, 0f);
-			_UILblMessage.text = "Waiting Player";
+			_UILblMessage.text = "키넥트 앞에 서세요";
 		}
-		
+
+		if (_bIsDemoPlay)
+			_UILblMessage.text = "데모 플레이중입니다";
+
 		Invoke("CheckPlayer", 0.1f);
 	}
 
@@ -791,8 +988,9 @@ public class MainControl : MonoBehaviour
 		
 		if (_nOption_Interval > 120)
 			_nOption_Interval = _nOption_Interval - 120;
-		
-		_Ulbl_Interval.text = _nOption_Interval.ToString();
+
+		_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
+		_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
 	}
 	
 	public void Option_SetInterval_Minus()
@@ -801,8 +999,9 @@ public class MainControl : MonoBehaviour
 		
 		if (_nOption_Interval <= 0)
 			_nOption_Interval = _nOption_Interval + 120;
-		
-		_Ulbl_Interval.text = _nOption_Interval.ToString();
+
+		_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
+		_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
 	}
 
 
@@ -816,9 +1015,18 @@ public class MainControl : MonoBehaviour
 		_nOption_Duration ++;
 		
 		if (_nOption_Duration > 60)
+		{
 			_nOption_Duration = _nOption_Duration - 60;
-		
+			_nOption_Interval = _nOption_Interval + 60;
+		}
+
 		_Ulbl_Duration.text = _nOption_Duration.ToString();
+		
+		if ((_nOption_Interval_Include > _nOption_Duration) && (_nOption_Interval > 1) )
+			_nOption_Interval --;
+
+		_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
+		_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
 	}
 	
 	public void Option_SetDuration_Minus()
@@ -826,9 +1034,21 @@ public class MainControl : MonoBehaviour
 		_nOption_Duration --;
 		
 		if (_nOption_Duration <= 0)
+		{
 			_nOption_Duration = _nOption_Duration + 60;
-		
+
+			if (_nOption_Interval_Include > _nOption_Duration)
+				_nOption_Interval = _nOption_Interval - 60;
+			else
+				_nOption_Interval = 0;
+		}
+
 		_Ulbl_Duration.text = _nOption_Duration.ToString();
+		
+		_nOption_Interval ++;
+
+		_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
+		_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
 	}
 
 
@@ -941,7 +1161,11 @@ public class MainControl : MonoBehaviour
 
 
 
-
+	// 클릭사운드----
+	public void Sound_Click()
+	{
+		_goSnd_Click.audio.Play();
+	}
 
 
 
@@ -949,14 +1173,14 @@ public class MainControl : MonoBehaviour
 	void OnConnected(object sender, EventArgs e)
 	{
 		IsConnect_Robot = true;
-		_UILblRobotMessage.text = "Connceted"; // NGUI
+		_UILblRobotMessage.text = "연결됨"; // NGUI
 		CheckStartButton(); // NGUI
 	}
 	
 	void OnConnectionFailed(object sender, EventArgs e)
 	{
 		IsConnect_Robot = false;
-		_UILblRobotMessage.text = "Failed"; // NGUI
+		_UILblRobotMessage.text = "연결 실패"; // NGUI
 		_goBtnConnect.SetActive(true);		// NGUI
 		CheckStartButton(); // NGUI
 	}
@@ -964,12 +1188,13 @@ public class MainControl : MonoBehaviour
 	void OnDisconnected(object sender, EventArgs e)
 	{
 		IsConnect_Robot = false;
-		_UILblRobotMessage.text = "Disconnected"; // NGUI
+		_UILblRobotMessage.text = "연결 끊어짐"; // NGUI
 		_goBtnConnect.SetActive(true);		// NGUI
 		CheckStartButton(); // NGUI
 
 		Invoke("Clear_Ports", 0.1f);
 		Invoke("Search_Ports", 0.2f);
+		GoTitle();
 	}
 	
 	void OnSearchCompleted(object sender, EventArgs e)
