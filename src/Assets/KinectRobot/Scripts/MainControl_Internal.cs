@@ -92,6 +92,8 @@ public class MainControl_Internal : MonoBehaviour
 	public GameObject	_goGestureOff;
 	public GameObject	_goAvatarOn;
 	public GameObject	_goAvatarOff;
+
+	public UILabel	_Ulbl_EndTime;
 	// OPTION & NGUI ========================
 	
 	
@@ -246,6 +248,12 @@ public class MainControl_Internal : MonoBehaviour
 		}
 		
 		Debug.Log("TableCount " + _lstTimeTable.Count.ToString());
+
+
+		int nH = (int)Mathf.Floor(_nTime / 3600);
+		int nM = (int)Mathf.Floor((_nTime - (nH * 3600)) / 60);
+		
+		_Ulbl_EndTime.text = "예상종료시각 " + nH.ToString() +  ":" + string.Format("{0:D2}", nM);
 	}
 
 
@@ -378,9 +386,32 @@ public class MainControl_Internal : MonoBehaviour
 	
 	public void GoQuickStart()
 	{
+		int _nCurTime;
+		_nCurTime = (DateTime.Now.Hour * 3600) + (DateTime.Now.Minute * 60) + (DateTime.Now.Second);
+		
+		foreach(CTimeTable table in _lstTimeTable)
+		{
+			if (table._nStartPlay > _nCurTime)
+			{
+				_nCurRepeat = 1;
+				break;
+			}
+			if ( (table._nStartPlay <= _nCurTime) && (table._nEndPlay > _nCurTime) )
+			{
+				_nCurRepeat = table._nCount;
+				break;
+			}
+			else if ( (table._nEndPlay <= _nCurTime) && (table._nEndBreak > _nCurTime) )
+			{
+				_nCurRepeat = table._nCount;
+				break;
+			}
+		}
+
 		_nCurDuration = _nOption_Duration * 60; // 회당 제한 시간-
 		DurationCountDown();
 		GoWaiting();
+		PlayBGM();
 	}
 	
 	
@@ -410,6 +441,7 @@ public class MainControl_Internal : MonoBehaviour
 				_nCurDuration = table._nEndPlay - _nCurTime;
 				DurationCountDown();
 				GoWaiting();
+				PlayBGM();
 				_bReturn = true;
 				break;
 			}
@@ -486,6 +518,7 @@ public class MainControl_Internal : MonoBehaviour
 				_nCurDuration = _nOption_Duration * 60; // 회당 제한 시간-
 				DurationCountDown();
 				GoWaiting();
+				PlayBGM();
 			}
 			return;
 		}
@@ -493,7 +526,7 @@ public class MainControl_Internal : MonoBehaviour
 		if (_nCurRepeat >= _nOption_Repeat)
 		{
 			_ULbl_Standby.text = "";
-			_ULbl_StandbyTime.text = "공연 종료";
+			_ULbl_StandbyTime.text = "체험 종료";
 			return;
 		}
 		
@@ -518,7 +551,7 @@ public class MainControl_Internal : MonoBehaviour
 		if (_nCurRepeat >= _nOption_Repeat)
 		{
 			_ULbl_Standby.text = "";
-			_ULbl_StandbyTime.text = "공연 종료";
+			_ULbl_StandbyTime.text = "체험 종료";
 			return;
 		}
 
@@ -619,16 +652,16 @@ public class MainControl_Internal : MonoBehaviour
 			//_UILblDuration.color = Color.red;
 			_UILblDuration.fontSize = 50 - _nCurDuration;
 		}
-		//else
-			//_UILblDuration.color = Color.white;
+		else
+			_UILblDuration.fontSize = 20;
 
 
 		if (_nCurDuration > 0)
-			_UILblDuration.text = "공연 종료까지 " + _nCurDuration.ToString();
+			_UILblDuration.text = "체험 종료까지 " + _nCurDuration.ToString();
 		else
 		{
 			_UILblDuration.fontSize = 50;
-			_UILblDuration.text = "공연 종료합니다";
+			_UILblDuration.text = "체험 종료합니다";
 		}
 		
 		CancelInvoke("DurationCountDown");
@@ -943,6 +976,7 @@ public class MainControl_Internal : MonoBehaviour
 			_nOption_StartTime = _nOption_StartTime - 24;
 		
 		_Ulbl_StartTime.text = _nOption_StartTime.ToString();
+		Set_TimeTable();
 	}
 	
 	public void Option_SetStartTime_Minus()
@@ -953,6 +987,7 @@ public class MainControl_Internal : MonoBehaviour
 			_nOption_StartTime = _nOption_StartTime + 24;
 		
 		_Ulbl_StartTime.text = _nOption_StartTime.ToString();
+		Set_TimeTable();
 	}
 	
 	
@@ -966,11 +1001,12 @@ public class MainControl_Internal : MonoBehaviour
 	{
 		_nOption_Repeat ++;
 		
-		if (_nOption_Repeat > 30)
-			_nOption_Repeat = _nOption_Repeat - 30;
+		if (_nOption_Repeat > 99)
+			_nOption_Repeat = _nOption_Repeat - 99;
 		
 		_Ulbl_Repeat.text = _nOption_Repeat.ToString();
 		Show_RepeatCounter();
+		Set_TimeTable();
 	}
 	
 	public void Option_SetRepeat_Minus()
@@ -978,10 +1014,11 @@ public class MainControl_Internal : MonoBehaviour
 		_nOption_Repeat --;
 		
 		if (_nOption_Repeat <= 0)
-			_nOption_Repeat = _nOption_Repeat + 30;
+			_nOption_Repeat = _nOption_Repeat + 99;
 		
 		_Ulbl_Repeat.text = _nOption_Repeat.ToString();
 		Show_RepeatCounter();
+		Set_TimeTable();
 	}
 	
 	
@@ -997,6 +1034,7 @@ public class MainControl_Internal : MonoBehaviour
 		
 		_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
 		_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
+		Set_TimeTable();
 	}
 	
 	public void Option_SetInterval_Minus()
@@ -1008,6 +1046,7 @@ public class MainControl_Internal : MonoBehaviour
 		
 		_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
 		_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
+		Set_TimeTable();
 	}
 	
 	
@@ -1033,6 +1072,7 @@ public class MainControl_Internal : MonoBehaviour
 
 		_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
 		_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
+		Set_TimeTable();
 	}
 	
 	public void Option_SetDuration_Minus()
@@ -1055,6 +1095,7 @@ public class MainControl_Internal : MonoBehaviour
 
 		_nOption_Interval_Include = _nOption_Interval + _nOption_Duration;
 		_Ulbl_Interval.text = _nOption_Interval_Include.ToString();
+		Set_TimeTable();
 	}
 	
 	
