@@ -569,7 +569,7 @@ public class MainControl_Internal : MonoBehaviour
 
 		
 		
-		int nTime = (int)Mathf.Floor(_nCurInterval / 360);
+		int nTime = (int)Mathf.Floor(_nCurInterval / 3600);
 		string strTime = string.Format("{0:D2}", nTime);
 		
 		int nMinute = (int)Mathf.Floor((_nCurInterval - (nTime * 360)) / 60);
